@@ -9,7 +9,7 @@ class ColorStyles {
   static const disabled_text_color = Color(0xFFA5BDC7);
 
   static const blue_color = Color(0xFF0065FD);
-  static const brand_orange = Color(0xFFFF3737);
+  static const orange_color = Color(0xFFFF9900);
   static const brand_milk_color = Color(0xFFF1F0EC);
 
   static const brand_white_color = Color(0xFFFFFFFF);

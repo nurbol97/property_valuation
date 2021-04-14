@@ -19,7 +19,7 @@ class EntreBtnDesignMilk extends StatelessWidget {
       child: RaisedButton(
         elevation: 0,
         disabledTextColor: Colors.white,
-        textColor: ColorStyles.brand_orange,
+        textColor: ColorStyles.orange_color,
         onPressed: function,
         child: Container(
           child: Text(

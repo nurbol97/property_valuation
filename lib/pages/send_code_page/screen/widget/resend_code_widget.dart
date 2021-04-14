@@ -19,8 +19,8 @@ class _ResendCodeTextState extends State<ResendCodeText> {
   @override
   Widget build(BuildContext context) {
     return TweenAnimationBuilder(
-      tween: Tween(begin: 12.00, end: 0),
-      duration: Duration(seconds: 12),
+      tween: Tween(begin: 30.00, end: 0),
+      duration: Duration(seconds: 30),
       builder: (_, value, child) {
         if (value < 10) {
           return Text("00:0${value.toInt()}",

@@ -15,7 +15,7 @@ class ServicesBtnOrange extends StatelessWidget {
           borderRadius: new BorderRadius.circular(25.0)),
       minWidth: 400,
       height: 50,
-      buttonColor: ColorStyles.brand_orange,
+      buttonColor: ColorStyles.orange_color,
       child: RaisedButton(
         elevation: 0,
         disabledTextColor: Colors.white,

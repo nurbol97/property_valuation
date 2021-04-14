@@ -15,7 +15,7 @@ class SmallEntreBtnOrange extends StatelessWidget {
           borderRadius: new BorderRadius.circular(25.0)),
       minWidth: 280,
       height: 40,
-      buttonColor: ColorStyles.brand_orange,
+      buttonColor: ColorStyles.orange_color,
       child: RaisedButton(
         elevation: 0,
         disabledTextColor: Colors.white,

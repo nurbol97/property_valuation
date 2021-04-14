@@ -11,7 +11,7 @@ class EditBtnDesign extends StatelessWidget {
       shape: new RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(25.0),
           side: BorderSide(
-            color: ColorStyles.brand_orange,
+            color: ColorStyles.orange_color,
             width: 2,
           )),
       minWidth: 328,
@@ -20,7 +20,7 @@ class EditBtnDesign extends StatelessWidget {
       child: RaisedButton(
         elevation: 0,
         disabledTextColor: Colors.white,
-        textColor: ColorStyles.brand_orange,
+        textColor: ColorStyles.orange_color,
         onPressed: function,
         child: Container(
           child: Text(
