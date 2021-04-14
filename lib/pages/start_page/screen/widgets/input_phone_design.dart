@@ -13,10 +13,6 @@ class InputPhoneDesign extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void openCountriesPage() {
-      Navigator.pushNamed(context, '/countries');
-    }
-
     return Container(
       width: 335.w,
       height: 48,

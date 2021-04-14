@@ -1,10 +1,12 @@
-import 'dart:ui';
-
+import 'package:direct_select_flutter/direct_select_container.dart';
+import 'package:direct_select_flutter/direct_select_item.dart';
+import 'package:direct_select_flutter/direct_select_list.dart';
 import 'package:flutter/material.dart';
 import 'package:property_valuation/constants/btn_design/entreBtnBlue.dart';
+import 'package:property_valuation/constants/colors/colorStyle.dart';
 import 'package:property_valuation/constants/textStyle/textStyle.dart';
-import 'package:property_valuation/pages/start_page/screen/widgets/text_bottom_design.dart';
-
+import 'package:property_valuation/pages/start_page/screen/widgets/input_city_design.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'input_phone_design.dart';
 
 class InputForm extends StatefulWidget {
@@ -17,25 +19,23 @@ class _InputFormState extends State<InputForm> {
 
   GlobalKey<FormState> _formKey;
 
-  @override
-  void initState() {
-    _formKey = GlobalKey<FormState>();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    textEditingController.dispose();
-    _formKey = null;
-    super.dispose();
-  }
-
+  List<String> _cities = [
+    'America',
+    'Brazil',
+    'Canada',
+    'India',
+    'Mongalia',
+    'USA',
+    'China',
+    'Russia'
+        'Germany'
+  ];
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.fromLTRB(20, 25, 20, 34),
-      child: Form(
-        key: _formKey,
+    String dropdownValue = 'One';
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.fromLTRB(20, 25, 20, 34),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -58,21 +58,23 @@ class _InputFormState extends State<InputForm> {
                 ),
                 InputPhoneDesign(),
                 SizedBox(
-                  height: 16,
+                  height: 20,
                 ),
-                SizedBox(
-                  height: 32,
-                ),
+                InputCityDesign(),
               ],
             ),
+            SizedBox(
+              height: 50.h,
+            ),
             EntreBtnDesignBlue(
-                text: 'Далее',
-                onSave: () {
-                  if (_formKey.currentState.validate()) {
-                    ScaffoldMessenger.of(context)
-                        .showSnackBar(SnackBar(content: Text("Success")));
-                  }
-                }),
+              text: 'Далее',
+              onSave: () {
+                if (_formKey.currentState.validate()) {
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text("Success")));
+                }
+              },
+            ),
           ],
         ),
       ),

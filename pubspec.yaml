@@ -32,6 +32,7 @@ dependencies:
   url_launcher: ^6.0.3
   flutter_screenutil: ^4.0.4+1
   dropdownfield: ^1.0.3
+  direct_select_flutter: ^1.1.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -67,6 +68,10 @@ flutter:
     - family: UIDisplay
       fonts:
         - asset: assets/fonts/SFUIDisplay-Regular.ttf
+    - family: PropertyValuationIcons
+      fonts:
+        - asset: assets/fonts/PropertyValuationIcons.ttf
+        
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
