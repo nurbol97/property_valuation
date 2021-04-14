@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:property_valuation/constants/btn_design/small_back_btn.dart';
 import 'package:property_valuation/constants/icon/property_valuation_icons.dart';
 import 'package:property_valuation/constants/textStyle/textStyle.dart';
 import 'package:property_valuation/pages/send_code_page/screen/widget/entry_code_widget..dart';
@@ -9,18 +10,6 @@ import 'package:property_valuation/pages/start_page/screen/widgets/text_bottom_d
 class SendCodePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle outlineButtonStyle = OutlinedButton.styleFrom(
-      primary: Colors.white,
-      side: BorderSide(
-        color: Color(0xFFE5ECEF),
-        width: 1,
-      ),
-      padding: EdgeInsets.symmetric(horizontal: 8),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(15)),
-      ),
-    );
-
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -30,19 +19,14 @@ class SendCodePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                width: 46,
-                height: 46,
-                child: OutlinedButton(
-                  style: outlineButtonStyle,
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Icon(
-                    PropertyValuationIcons.small_left,
-                    color: Color(0xFFA5BDC7),
-                  ),
-                ),
-              ),
+                  width: 46,
+                  height: 46,
+                  child: SmallBackBtn(
+                    icon: Icon(
+                      PropertyValuationIcons.small_left,
+                      color: Color(0xFFA5BDC7),
+                    ),
+                  )),
               SizedBox(
                 height: 35.h,
               ),

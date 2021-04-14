@@ -17,6 +17,13 @@ class TextStyles {
       fontWeight: FontWeight.w400,
       color: ColorStyles.brand_black);
 
+  static const TextStyle black30_w700 = TextStyle(
+      fontFamily: 'UIDisplay',
+      fontStyle: FontStyle.normal,
+      fontSize: 30,
+      fontWeight: FontWeight.w700,
+      color: ColorStyles.brand_black);
+
   static const TextStyle head_small16_black = TextStyle(
       fontFamily: 'UIDisplay',
       fontStyle: FontStyle.normal,
