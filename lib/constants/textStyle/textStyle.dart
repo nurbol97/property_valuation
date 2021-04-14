@@ -9,6 +9,14 @@ class TextStyles {
       fontSize: 32,
       fontWeight: FontWeight.w600,
       color: ColorStyles.brand_black);
+
+  static const TextStyle timer_text_black = TextStyle(
+      fontFamily: 'UIDisplay',
+      fontStyle: FontStyle.normal,
+      fontSize: 32,
+      fontWeight: FontWeight.w400,
+      color: ColorStyles.brand_black);
+
   static const TextStyle head_small16_black = TextStyle(
       fontFamily: 'UIDisplay',
       fontStyle: FontStyle.normal,

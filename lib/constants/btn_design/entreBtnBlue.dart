@@ -8,21 +8,22 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class EntreBtnDesignBlue extends StatelessWidget {
   String text;
   Function onSave;
-
-  EntreBtnDesignBlue({this.text, this.onSave});
+  bool isActivated = false;
+  EntreBtnDesignBlue({this.text, this.onSave, this.isActivated});
   @override
   Widget build(BuildContext context) {
     return ButtonTheme(
       shape: new RoundedRectangleBorder(
-          borderRadius: new BorderRadius.circular(25.0)),
+          borderRadius: new BorderRadius.circular(12.0)),
       minWidth: 335.w,
       height: 48,
       buttonColor: ColorStyles.blue_color,
       child: RaisedButton(
         elevation: 0,
-        disabledTextColor: Colors.white,
+        disabledTextColor: ColorStyles.disabled_text_color,
+        disabledColor: ColorStyles.disabled_button_color,
         textColor: Colors.white,
-        onPressed: onSave,
+        onPressed: isActivated ? onSave : null,
         child: Container(
           child: Text(
             text,

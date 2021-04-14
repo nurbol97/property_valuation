@@ -5,6 +5,9 @@ class ColorStyles {
   static const brand_grey = Color(0xFFA5BDC7);
   static const background_color = Color(0xFFF6F9FF);
 
+  static const disabled_button_color = Color(0xFFE5ECEF);
+  static const disabled_text_color = Color(0xFFA5BDC7);
+
   static const blue_color = Color(0xFF0065FD);
   static const brand_orange = Color(0xFFFF3737);
   static const brand_milk_color = Color(0xFFF1F0EC);

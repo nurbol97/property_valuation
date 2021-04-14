@@ -5,10 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:property_valuation/constants/textStyle/textStyle.dart';
 
-import 'package:direct_select_flutter/direct_select_container.dart';
-import 'package:direct_select_flutter/direct_select_item.dart';
-import 'package:direct_select_flutter/direct_select_list.dart';
-
 class InputCityDesign extends StatefulWidget {
   @override
   _InputCityDesignState createState() => _InputCityDesignState();
@@ -24,15 +20,22 @@ class _InputCityDesignState extends State<InputCityDesign> {
 
   String country_id;
   List<String> country = [
-    "America",
-    "Brazil",
-    "Canada",
-    "India",
-    "Mongalia",
-    "USA",
-    "China",
-    "Russia",
-    "Germany"
+    "Нур-султан (Астана)",
+    "Алматы",
+    "Атырау",
+    "Актау",
+    "Актобе",
+    "Караганда",
+    "Кокшетау",
+    "Костанай",
+    "Кызылорда",
+    "Павлодар",
+    "Петропавловск",
+    "Талдыкорган",
+    "Тараз",
+    "Туркестан",
+    "Уральск",
+    "Усть-Каменогорск",
   ];
   @override
   Widget build(BuildContext context) {
@@ -50,9 +53,9 @@ class _InputCityDesignState extends State<InputCityDesign> {
                 },
                 value: country_id,
                 required: false,
-                hintText: 'Choose a country',
+                hintText: 'Пожалуйста выберите ваш город:',
                 hintStyle: TextStyles.head_small14_grey,
-                textStyle: TextStyles.head_small14_grey,
+                textStyle: TextStyles.small14_black,
                 items: country,
               ),
             ]),

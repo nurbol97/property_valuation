@@ -1,5 +1,5 @@
 class Routes {
   static const HOME = '/home';
   static const AUTH = '/auth';
-  static const OTP_CODE = '/otp';
+  static const SCREEN_CODE = '/screen_code';
 }

@@ -7,6 +7,7 @@ import 'package:property_valuation/constants/colors/colorStyle.dart';
 import 'package:property_valuation/constants/textStyle/textStyle.dart';
 import 'package:property_valuation/pages/start_page/screen/widgets/input_city_design.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:property_valuation/routes/app_routes.dart';
 import 'input_phone_design.dart';
 
 class InputForm extends StatefulWidget {
@@ -19,17 +20,6 @@ class _InputFormState extends State<InputForm> {
 
   GlobalKey<FormState> _formKey;
 
-  List<String> _cities = [
-    'America',
-    'Brazil',
-    'Canada',
-    'India',
-    'Mongalia',
-    'USA',
-    'China',
-    'Russia'
-        'Germany'
-  ];
   @override
   Widget build(BuildContext context) {
     String dropdownValue = 'One';
@@ -64,11 +54,13 @@ class _InputFormState extends State<InputForm> {
               ],
             ),
             SizedBox(
-              height: 50.h,
+              height: 209.h,
             ),
             EntreBtnDesignBlue(
               text: 'Далее',
+              isActivated: true,
               onSave: () {
+                Navigator.pushNamed(context, Routes.SCREEN_CODE);
                 if (_formKey.currentState.validate()) {
                   ScaffoldMessenger.of(context)
                       .showSnackBar(SnackBar(content: Text("Success")));
