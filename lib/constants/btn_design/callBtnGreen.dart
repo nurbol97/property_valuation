@@ -15,7 +15,7 @@ class CallBtGreenDesign extends StatelessWidget {
           borderRadius: new BorderRadius.circular(25.0)),
       minWidth: 328,
       height: 50,
-      buttonColor: ColorStyles.brand_green_color,
+      buttonColor: ColorStyles.green_color,
       child: RaisedButton(
         elevation: 0,
         disabledTextColor: Colors.white,

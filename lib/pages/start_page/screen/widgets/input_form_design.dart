@@ -41,7 +41,7 @@ class _InputFormState extends State<InputForm> {
                 ),
                 Text(
                   'Пожалуйста введите ваш телефон:',
-                  style: TextStyles.small14_black,
+                  style: TextStyles.small14_black_w400,
                 ),
                 SizedBox(
                   height: 15,

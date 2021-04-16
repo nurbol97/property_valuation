@@ -55,7 +55,7 @@ class _InputCityDesignState extends State<InputCityDesign> {
                 required: false,
                 hintText: 'Пожалуйста выберите ваш город:',
                 hintStyle: TextStyles.head_small14_grey,
-                textStyle: TextStyles.small14_black,
+                textStyle: TextStyles.small14_black_w400,
                 items: country,
               ),
             ]),

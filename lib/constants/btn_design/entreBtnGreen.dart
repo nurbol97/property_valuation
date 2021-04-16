@@ -15,7 +15,7 @@ class EntreBtnDesignGreen extends StatelessWidget {
           borderRadius: new BorderRadius.circular(25.0)),
       minWidth: width,
       height: 50,
-      buttonColor: ColorStyles.brand_green_color,
+      buttonColor: ColorStyles.green_color,
       child: RaisedButton(
         elevation: 0,
         disabledTextColor: Colors.white,

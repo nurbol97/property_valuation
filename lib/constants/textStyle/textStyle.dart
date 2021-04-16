@@ -24,6 +24,13 @@ class TextStyles {
       fontWeight: FontWeight.w700,
       color: ColorStyles.brand_black);
 
+  static const TextStyle black24_w900 = TextStyle(
+      fontFamily: 'UIDisplay',
+      fontStyle: FontStyle.normal,
+      fontSize: 24,
+      fontWeight: FontWeight.w900,
+      color: ColorStyles.brand_black);
+
   static const TextStyle head_small16_black = TextStyle(
       fontFamily: 'UIDisplay',
       fontStyle: FontStyle.normal,
@@ -38,6 +45,13 @@ class TextStyles {
       fontWeight: FontWeight.w500,
       color: ColorStyles.brand_black);
 
+  static const TextStyle black_small16_w400 = TextStyle(
+      fontFamily: 'UIDisplay',
+      fontStyle: FontStyle.normal,
+      fontSize: 16,
+      fontWeight: FontWeight.w400,
+      color: ColorStyles.brand_black);
+
   static const TextStyle head_small20_black = TextStyle(
       fontFamily: 'UIDisplay',
       fontStyle: FontStyle.normal,
@@ -45,12 +59,21 @@ class TextStyles {
       fontWeight: FontWeight.w700,
       color: ColorStyles.brand_black);
 
-  static const TextStyle small14_black = TextStyle(
+  static const TextStyle small14_black_w400 = TextStyle(
       fontFamily: 'UIDisplay',
       fontStyle: FontStyle.normal,
       fontSize: 14,
       fontWeight: FontWeight.w400,
       color: ColorStyles.brand_black);
+
+  static const TextStyle small14_black_w400_space5 = TextStyle(
+    fontFamily: 'UIDisplay',
+    fontStyle: FontStyle.normal,
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: ColorStyles.brand_black,
+    letterSpacing: 0.5,
+  );
 
   static const TextStyle head_small12_black = TextStyle(
       fontFamily: 'UIDisplay',
