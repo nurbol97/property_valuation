@@ -31,6 +31,13 @@ class TextStyles {
       fontWeight: FontWeight.w900,
       color: ColorStyles.brand_black);
 
+  static const TextStyle black_16_w700 = TextStyle(
+      fontFamily: 'UIDisplay',
+      fontStyle: FontStyle.normal,
+      fontSize: 16,
+      fontWeight: FontWeight.w700,
+      color: ColorStyles.brand_black);
+
   static const TextStyle head_small16_black = TextStyle(
       fontFamily: 'UIDisplay',
       fontStyle: FontStyle.normal,
@@ -75,11 +82,11 @@ class TextStyles {
     letterSpacing: 0.5,
   );
 
-  static const TextStyle head_small12_black = TextStyle(
+  static const TextStyle black_12_w600 = TextStyle(
       fontFamily: 'UIDisplay',
       fontStyle: FontStyle.normal,
       fontSize: 12,
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w600,
       color: ColorStyles.brand_black);
 
   static const TextStyle head_small14_grey = TextStyle(
@@ -87,6 +94,13 @@ class TextStyles {
       fontStyle: FontStyle.normal,
       fontSize: 14,
       fontWeight: FontWeight.w400,
+      color: ColorStyles.brand_grey);
+
+  static const TextStyle grey_14_w500 = TextStyle(
+      fontFamily: 'UIDisplay',
+      fontStyle: FontStyle.normal,
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
       color: ColorStyles.brand_grey);
 
   static const TextStyle delete_size14_red = TextStyle(
@@ -103,10 +117,24 @@ class TextStyles {
       fontWeight: FontWeight.w400,
       color: ColorStyles.blue_color);
 
+  static const TextStyle blue_16_w700 = TextStyle(
+      fontFamily: 'UIDisplay',
+      fontStyle: FontStyle.normal,
+      fontSize: 16,
+      fontWeight: FontWeight.w700,
+      color: ColorStyles.blue_color);
+
   static const TextStyle orange_text16_w400 = TextStyle(
       fontFamily: 'UIDisplay',
       fontStyle: FontStyle.normal,
       fontSize: 16,
       fontWeight: FontWeight.w400,
+      color: ColorStyles.orange_color);
+
+  static const TextStyle orange_12_w500 = TextStyle(
+      fontFamily: 'UIDisplay',
+      fontStyle: FontStyle.normal,
+      fontSize: 12,
+      fontWeight: FontWeight.w500,
       color: ColorStyles.orange_color);
 }

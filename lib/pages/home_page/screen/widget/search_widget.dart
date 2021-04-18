@@ -13,7 +13,9 @@ class SearchWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Container(
+      width: 335.w,
+      height: 60.h,
       child: TextField(
         onChanged: (String val) {
           onChanged(val);
