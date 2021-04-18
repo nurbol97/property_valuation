@@ -8,10 +8,13 @@ import 'package:property_valuation/pages/osmotr_page/widget/add_image_widget.dar
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:property_valuation/pages/osmotr_page/widget/input_raiony_widget.dart';
-import 'package:property_valuation/pages/osmotr_page/widget/input_street_widget.dart';
+import 'package:property_valuation/pages/osmotr_page/widget/input_info_widget.dart';
 import 'package:property_valuation/pages/start_page/screen/widgets/input_city_design.dart';
 
 class OsmotrPage extends StatelessWidget {
+  TextEditingController streetController;
+  TextEditingController homeNumberController;
+  TextEditingController sosednieStreetController;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +36,7 @@ class OsmotrPage extends StatelessWidget {
                       ),
                     )),
                 SizedBox(
-                  height: 35.h,
+                  height: 25.h,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -102,13 +105,41 @@ class OsmotrPage extends StatelessWidget {
                     SizedBox(
                       height: 20.h,
                     ),
-                    InputStreetDesign(),
+                    InputInfoDesign(
+                      hintTextOut: 'Пожалуйста введите вашу улицу',
+                      textInputType: TextInputType.streetAddress,
+                      controller: streetController,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputInfoDesign(
+                      hintTextOut: 'Номер дома',
+                      textInputType: TextInputType.number,
+                      controller: homeNumberController,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputInfoDesign(
+                      hintTextOut: 'Граничащие и соседние улицы',
+                      textInputType: TextInputType.number,
+                      controller: sosednieStreetController,
+                    ),
                   ],
                 ),
               ],
             ),
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: ColorStyles.blue_color,
+        onPressed: () {
+          print('asdasd');
+        },
+        tooltip: 'Далее',
+        child: Icon(PropertyValuationIcons.arrowright),
       ),
     );
   }

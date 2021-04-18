@@ -7,7 +7,11 @@ import 'package:property_valuation/constants/colors/colorStyle.dart';
 import 'package:property_valuation/constants/textStyle/textStyle.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class InputStreetDesign extends StatelessWidget {
+class InputInfoDesign extends StatelessWidget {
+  String hintTextOut;
+  TextInputType textInputType = TextInputType.text;
+  TextEditingController controller;
+  InputInfoDesign({this.hintTextOut, this.textInputType, this.controller});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,12 +26,13 @@ class InputStreetDesign extends StatelessWidget {
         child: TextFormField(
           autofocus: false,
           maxLines: 1,
+          controller: controller,
           // ignore: missing_return
           validator: (String value) {
             if (value.isEmpty || value.length < 18)
-              return 'Пожалуйста введите верный номер телефона';
+              return 'Пожалуйста введите верные данные';
           },
-          keyboardType: TextInputType.streetAddress,
+          keyboardType: textInputType,
           decoration: InputDecoration(
             errorStyle: TextStyle(
               height: 0.3,
@@ -42,7 +47,7 @@ class InputStreetDesign extends StatelessWidget {
                 ),
                 borderSide: BorderSide.none),
 
-            hintText: 'Пожалуйста введите вашу улицу',
+            hintText: hintTextOut,
             hintStyle: TextStyles.head_small14_grey,
             //labelText: '',
           ),
