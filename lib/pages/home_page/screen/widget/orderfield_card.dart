@@ -135,7 +135,7 @@ class OrderFieldCard extends StatelessWidget {
                 EntreBtnDesignBlue(
                   text: "Начать осмотр",
                   onSave: () {
-                    Navigator.pushNamed(context, Routes.OSMOTR);
+                    Navigator.pushNamed(context, Routes.OSMOTR1);
                   },
                   isActivated: true,
                 )

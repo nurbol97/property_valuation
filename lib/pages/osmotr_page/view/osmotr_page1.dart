@@ -10,8 +10,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:property_valuation/pages/osmotr_page/widget/input_raiony_widget.dart';
 import 'package:property_valuation/pages/osmotr_page/widget/input_info_widget.dart';
 import 'package:property_valuation/pages/start_page/screen/widgets/input_city_design.dart';
+import 'package:property_valuation/routes/app_routes.dart';
 
-class OsmotrPage extends StatelessWidget {
+class OsmotrPage1 extends StatelessWidget {
   TextEditingController streetController;
   TextEditingController homeNumberController;
   TextEditingController sosednieStreetController;
@@ -136,7 +137,7 @@ class OsmotrPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: ColorStyles.blue_color,
         onPressed: () {
-          print('asdasd');
+          Navigator.pushNamed(context, Routes.OSMOTR2);
         },
         tooltip: 'Далее',
         child: Icon(PropertyValuationIcons.arrowright),
