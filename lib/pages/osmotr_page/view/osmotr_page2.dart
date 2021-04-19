@@ -1,21 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:property_valuation/constants/btn_design/small_back_btn.dart';
 import 'package:property_valuation/constants/colors/colorStyle.dart';
 import 'package:property_valuation/constants/icon/property_valuation_icons.dart';
 import 'package:property_valuation/constants/textStyle/textStyle.dart';
-import 'package:property_valuation/pages/osmotr_page/widget/add_address_map_widget.dart';
-import 'package:property_valuation/pages/osmotr_page/widget/add_image_widget.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:property_valuation/pages/osmotr_page/widget/input_raiony_widget.dart';
+
 import 'package:property_valuation/pages/osmotr_page/widget/input_info_widget.dart';
-import 'package:property_valuation/pages/start_page/screen/widgets/input_city_design.dart';
+import 'package:property_valuation/pages/osmotr_page/widget/input_othertext_widget.dart';
+
 import 'package:property_valuation/pages/start_page/screen/widgets/input_list_design.dart';
 
-class OsmotrPage2 extends StatelessWidget {
+class OsmotrPage2 extends StatefulWidget {
+  String text;
+  String hintText;
+
+  void returnText(String text, String hintText) {
+    this.text = text;
+    this.hintText = hintText;
+  }
+
+  @override
+  _OsmotrPage2State createState() => _OsmotrPage2State();
+}
+
+class _OsmotrPage2State extends State<OsmotrPage2> {
   TextEditingController streetController;
+
   TextEditingController homeNumberController;
+
   TextEditingController sosednieStreetController;
+
+  TextEditingController raspolozhenieController;
+
+  TextEditingController busController;
+
+  TextEditingController eduController;
+
+  TextEditingController drugoeRaspolojenieController;
 
   List<String> dostup = [
     "Нур-султан (Астана)",
@@ -35,6 +58,45 @@ class OsmotrPage2 extends StatelessWidget {
     "Уральск",
     "Усть-Каменогорск",
   ];
+
+  List<String> bus = [
+    "Высокая",
+    "Хорошая",
+    "Средняя",
+    "Удовлетворительная",
+    "Низкая",
+  ];
+
+  List<String> raspolojenie = [
+    "На проезжей части",
+    "Вблизи дороги",
+    "Далеко от дороги",
+    "Другое",
+  ];
+
+  List<String> ucheba = [
+    "Школы",
+    "Дет/сады",
+    "ВУЗЫ",
+  ];
+
+  List<String> chistota = [
+    "Отличная",
+    "Хорошая",
+    "Удовлетворительная",
+    "Неудовлетворительная",
+  ];
+
+  String drugoe = '';
+
+  void backController(String text, String hintext) {
+    if (hintext == 'Расположение прилегающей территории')
+      setState(() {
+        drugoe = text;
+      });
+  }
+
+  @override
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,14 +164,16 @@ class OsmotrPage2 extends StatelessWidget {
                     ),
                     InputListDesign(
                       hintTextBack: 'Доступность общественного транспорта',
-                      itemsFrom: dostup,
+                      itemsFrom: bus,
+                      controller: busController,
                     ),
                     SizedBox(
                       height: 20.h,
                     ),
                     InputListDesign(
                       hintTextBack: 'Близость учебных учреждений',
-                      itemsFrom: dostup,
+                      itemsFrom: ucheba,
+                      controller: eduController,
                     ),
                     SizedBox(
                       height: 20.h,
@@ -138,17 +202,28 @@ class OsmotrPage2 extends StatelessWidget {
                     SizedBox(
                       height: 20.h,
                     ),
-                    InputInfoDesign(
-                      hintTextOut: 'Расположение',
-                      textInputType: TextInputType.number,
-                      controller: homeNumberController,
+                    InputListDesign(
+                      hintTextBack: 'Расположение прилегающей территории',
+                      itemsFrom: raspolojenie,
+                      controller: raspolozhenieController,
+                      func: widget.returnText,
                     ),
                     SizedBox(
                       height: 20.h,
                     ),
                     InputListDesign(
                       hintTextBack: 'Чистота прилегающей территории',
-                      itemsFrom: dostup,
+                      itemsFrom: chistota,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputOtherText(
+                      controller: drugoeRaspolojenieController,
+                      hintTextOut: 'Комментарий',
+                    ),
+                    SizedBox(
+                      height: 20.h,
                     ),
                   ],
                 ),
@@ -161,6 +236,8 @@ class OsmotrPage2 extends StatelessWidget {
         backgroundColor: ColorStyles.blue_color,
         onPressed: () {
           print('asdasd');
+          print('${widget.hintText}');
+          print('${widget.text}');
         },
         tooltip: 'Далее',
         child: Icon(PropertyValuationIcons.arrowright),
