@@ -64,7 +64,7 @@ class OsmotrPage1 extends StatelessWidget {
                           width: 76,
                           child: Center(
                               child: Text(
-                            '1 шаг из 8',
+                            '1 шаг из 7',
                             style: TextStyles.orange_12_w500,
                           )),
                         )

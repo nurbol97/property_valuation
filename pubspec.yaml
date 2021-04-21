@@ -35,6 +35,7 @@ dependencies:
   direct_select_flutter: ^1.1.0
   pinput: ^1.2.0
   dotted_border: ^2.0.0
+  http: ^0.13.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

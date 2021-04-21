@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:property_valuation/constants/colors/colorStyle.dart';
 
 class CallBtGreenDesign extends StatelessWidget {
-  String text;
-  Function function;
+  final String text;
+  final Function function;
   CallBtGreenDesign({this.text, this.function});
   @override
   Widget build(BuildContext context) {

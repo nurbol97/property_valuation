@@ -10,7 +10,6 @@ import 'package:property_valuation/routes/app_routes.dart';
 class OrderFieldCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(
       margin: EdgeInsets.only(bottom: 30, top: 30),
       padding: EdgeInsets.fromLTRB(25, 0, 0, 25),

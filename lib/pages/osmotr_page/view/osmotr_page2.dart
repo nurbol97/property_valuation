@@ -11,6 +11,7 @@ import 'package:property_valuation/pages/osmotr_page/widget/input_info_widget.da
 import 'package:property_valuation/pages/osmotr_page/widget/input_othertext_widget.dart';
 
 import 'package:property_valuation/pages/start_page/screen/widgets/input_list_design.dart';
+import 'package:property_valuation/routes/app_routes.dart';
 
 class OsmotrPage2 extends StatefulWidget {
   String text;
@@ -145,7 +146,7 @@ class _OsmotrPage2State extends State<OsmotrPage2> {
                           width: 76,
                           child: Center(
                               child: Text(
-                            '2 шаг из 8',
+                            '2 шаг из 7',
                             style: TextStyles.orange_12_w500,
                           )),
                         )
@@ -238,6 +239,8 @@ class _OsmotrPage2State extends State<OsmotrPage2> {
           print('asdasd');
           print('${widget.hintText}');
           print('${widget.text}');
+
+          Navigator.pushNamed(context, Routes.OSMOTR3);
         },
         tooltip: 'Далее',
         child: Icon(PropertyValuationIcons.arrowright),

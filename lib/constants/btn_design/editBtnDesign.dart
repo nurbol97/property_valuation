@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:property_valuation/constants/colors/colorStyle.dart';
 
 class EditBtnDesign extends StatelessWidget {
-  String text;
-  Function function;
+  final String text;
+  final Function function;
   EditBtnDesign({this.text, this.function});
   @override
   Widget build(BuildContext context) {

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:property_valuation/constants/colors/colorStyle.dart';
 
 class EntreBtnDesignGreen extends StatelessWidget {
-  String text;
-  Function function;
+  final String text;
+  final Function function;
   double width = 328;
   EntreBtnDesignGreen({this.text, this.function, this.width});
   @override

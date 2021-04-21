@@ -4,4 +4,5 @@ class Routes {
   static const SCREEN_CODE = '/screen_code';
   static const OSMOTR1 = '/osmotr1';
   static const OSMOTR2 = '/osmotr2';
+  static const OSMOTR3 = '/osmotr3';
 }

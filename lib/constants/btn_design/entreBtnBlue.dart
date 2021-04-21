@@ -6,8 +6,8 @@ import 'package:property_valuation/constants/colors/colorStyle.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class EntreBtnDesignBlue extends StatelessWidget {
-  String text;
-  Function onSave;
+  final String text;
+  final Function onSave;
   bool isActivated = false;
   EntreBtnDesignBlue({this.text, this.onSave, this.isActivated});
   @override

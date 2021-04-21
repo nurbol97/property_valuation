@@ -8,7 +8,7 @@ import 'package:property_valuation/constants/textStyle/textStyle.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class InputPhoneDesign extends StatelessWidget {
-  var maskFormatter = new MaskTextInputFormatter(
+  final maskFormatter = new MaskTextInputFormatter(
       mask: '+7 (###) ###-##-##', filter: {"#": RegExp(r'[0-9]')});
 
   @override
@@ -23,7 +23,7 @@ class InputPhoneDesign extends StatelessWidget {
         elevation: 30.0,
         shadowColor: ColorStyles.blue_color.withOpacity(0.1),
         child: TextFormField(
-          autofocus: true,
+          autofocus: false,
           maxLines: 1,
           // ignore: missing_return
           validator: (String value) {

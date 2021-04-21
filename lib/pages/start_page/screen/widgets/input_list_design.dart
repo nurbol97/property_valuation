@@ -6,7 +6,7 @@ import 'package:property_valuation/constants/colors/colorStyle.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:property_valuation/constants/textStyle/textStyle.dart';
-import 'package:property_valuation/pages/osmotr_page/view/osmotr_page2.dart';
+
 import 'package:property_valuation/pages/osmotr_page/widget/input_othertext_widget.dart';
 
 class InputListDesign extends StatefulWidget {

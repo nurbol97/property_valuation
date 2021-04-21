@@ -1,9 +1,5 @@
-import 'package:direct_select_flutter/direct_select_container.dart';
-import 'package:direct_select_flutter/direct_select_item.dart';
-import 'package:direct_select_flutter/direct_select_list.dart';
 import 'package:flutter/material.dart';
 import 'package:property_valuation/constants/btn_design/entreBtnBlue.dart';
-import 'package:property_valuation/constants/colors/colorStyle.dart';
 import 'package:property_valuation/constants/textStyle/textStyle.dart';
 import 'package:property_valuation/pages/start_page/screen/widgets/input_city_design.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

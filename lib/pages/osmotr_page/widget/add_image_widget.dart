@@ -30,7 +30,7 @@ class AddImageWidget extends StatelessWidget {
                 ),
               ),
               Text(
-                'Загрузить фото с Google Maps',
+                'Загрузить фото',
                 style: TextStyles.grey_14_w500,
                 textAlign: TextAlign.center,
               ),
