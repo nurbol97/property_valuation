@@ -8,6 +8,26 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:property_valuation/routes/app_routes.dart';
 
 class OrderFieldCard extends StatelessWidget {
+  int id;
+  double housing_price;
+  int bid_number;
+  DateTime bid_date;
+  String housing_type;
+  String housing_address;
+  double housing_area;
+  String bid_type;
+  int userId;
+
+  OrderFieldCard(
+      {this.id,
+      this.housing_price,
+      this.bid_number,
+      this.bid_date,
+      this.housing_type,
+      this.housing_address,
+      this.housing_area,
+      this.bid_type,
+      this.userId});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -49,7 +69,7 @@ class OrderFieldCard extends StatelessWidget {
                     )),
                 child: Center(
                   child: Text(
-                    '№23',
+                    bid_number.toString(),
                     style: TextStyles.black_small16_w400,
                   ),
                 ),
@@ -64,70 +84,70 @@ class OrderFieldCard extends StatelessWidget {
                   icon: Icon(PropertyValuationIcons.usercircle),
                   text: "Зарлыков Темирлан Кайратович",
                 ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                OrderField(
-                  icon: Icon(PropertyValuationIcons.usercircle),
-                  text: "8 апреля 2021",
-                ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                OrderField(
-                  icon: Icon(PropertyValuationIcons.house),
-                  text: "Квартира",
-                ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                OrderField(
-                  icon: Icon(PropertyValuationIcons.mappin),
-                  text: "Жандосова / 27",
-                ),
-                SizedBox(
-                  height: 23.h,
-                ),
-                OrderField(
-                  icon: Icon(PropertyValuationIcons.mappin),
-                  text: "70 кв/метра",
-                ),
-                SizedBox(
-                  height: 23.h,
-                ),
-                OrderField(
-                  icon: Icon(PropertyValuationIcons.chattext),
-                  text: "Осмотр",
-                ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      '20 00 000 ₸',
-                      style: TextStyles.black24_w900,
-                    ),
-                    SizedBox(
-                      height: 46,
-                      width: 46,
-                      child: FlatButton(
-                        padding: EdgeInsets.only(left: 2),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        color: ColorStyles.green_color.withOpacity(0.12),
-                        onPressed: () {},
-                        child: Icon(
-                          PropertyValuationIcons.phone,
-                          color: ColorStyles.green_color,
-                          size: 24,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                // SizedBox(
+                //   height: 20.h,
+                // ),
+                // OrderField(
+                //   icon: Icon(PropertyValuationIcons.usercircle),
+                //   text: bid_date.toString(),
+                // ),
+                // SizedBox(
+                //   height: 20.h,
+                // ),
+                // OrderField(
+                //   icon: Icon(PropertyValuationIcons.house),
+                //   text: housing_type.toString(),
+                // ),
+                // SizedBox(
+                //   height: 20.h,
+                // ),
+                // OrderField(
+                //   icon: Icon(PropertyValuationIcons.mappin),
+                //   text: housing_address.toString(),
+                // ),
+                // SizedBox(
+                //   height: 23.h,
+                // ),
+                // OrderField(
+                //   icon: Icon(PropertyValuationIcons.mappin),
+                //   text: housing_area.toString(),
+                // ),
+                // SizedBox(
+                //   height: 23.h,
+                // ),
+                // OrderField(
+                //   icon: Icon(PropertyValuationIcons.chattext),
+                //   text: bid_type,
+                // ),
+                // SizedBox(
+                //   height: 20.h,
+                // ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   children: <Widget>[
+                //     Text(
+                //       housing_price.toString(),
+                //       style: TextStyles.black24_w900,
+                //     ),
+                //     SizedBox(
+                //       height: 46,
+                //       width: 46,
+                //       child: FlatButton(
+                //         padding: EdgeInsets.only(left: 2),
+                //         shape: RoundedRectangleBorder(
+                //           borderRadius: BorderRadius.circular(50),
+                //         ),
+                //         color: ColorStyles.green_color.withOpacity(0.12),
+                //         onPressed: () {},
+                //         child: Icon(
+                //           PropertyValuationIcons.phone,
+                //           color: ColorStyles.green_color,
+                //           size: 24,
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
                 SizedBox(
                   height: 15.h,
                 ),

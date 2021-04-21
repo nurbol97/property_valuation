@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:property_valuation/constants/colors/colorStyle.dart';
 
 import 'package:property_valuation/constants/textStyle/textStyle.dart';
+import 'package:property_valuation/pages/home_page/screen/view/data/model/order.dart';
 
 import 'package:property_valuation/pages/home_page/screen/widget/orderfield_card.dart';
 import 'package:property_valuation/pages/home_page/screen/widget/search_widget.dart';
@@ -10,6 +11,8 @@ import 'package:property_valuation/pages/home_page/screen/widget/search_widget.d
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomePage extends StatelessWidget {
+  List<OrderModel> orders;
+  HomePage({this.orders});
   @override
   Widget build(BuildContext context) {
     final TextEditingController controller = TextEditingController();

@@ -6,6 +6,7 @@ import 'package:property_valuation/constants/icon/property_valuation_icons.dart'
 import 'package:property_valuation/constants/textStyle/textStyle.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:property_valuation/pages/osmotr_page/widget/order_room_count.dart';
 import 'package:property_valuation/pages/osmotr_page/widget/add_image_widget.dart';
 
 import 'package:property_valuation/pages/osmotr_page/widget/input_info_widget.dart';
@@ -38,6 +39,18 @@ class _OsmotrPage3State extends State<OsmotrPage3> {
   TextEditingController field8_area_size;
   TextEditingController field9_potolok_height;
   TextEditingController field10_living_area;
+  TextEditingController field11_room_count;
+  TextEditingController field11_room1Areacontroller;
+  TextEditingController field11_room2Areacontroller;
+  TextEditingController field11_room3Areacontroller;
+  TextEditingController field12_kuhnya;
+  TextEditingController field13_balkon;
+  TextEditingController field14_vanna;
+  TextEditingController field15_toilet;
+  TextEditingController field16_pomeshenie;
+  TextEditingController field17_osobennosti;
+  TextEditingController field18_telephone;
+
   List<String> list_field1_data_ocenki = [
     "Проживание",
     "Аренда",
@@ -79,6 +92,16 @@ class _OsmotrPage3State extends State<OsmotrPage3> {
   ];
 
   List<String> list_field7_security_nalichie = [
+    "Да",
+    "Нет",
+  ];
+  List<String> list_field11_room_count = [
+    "1",
+    "2",
+    "3",
+  ];
+
+  List<String> list_field18_telephone = [
     "Да",
     "Нет",
   ];
@@ -261,6 +284,126 @@ class _OsmotrPage3State extends State<OsmotrPage3> {
                       controller: field10_living_area,
                     ),
                     SizedBox(
+                      height: 20.h,
+                    ),
+                    OrderRoomCountDesign(
+                      hintTextOut: 'Количество комнат',
+                      controller: field11_room_count,
+                      itemsFrom: list_field11_room_count,
+                      room1Areacontroller: field11_room1Areacontroller,
+                      room2Areacontroller: field11_room2Areacontroller,
+                      room3Areacontroller: field11_room3Areacontroller,
+                      func: widget.returnText,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputInfoDesign(
+                      hintTextOut: 'Кухня (кв/метра)',
+                      textInputType: TextInputType.number,
+                      controller: field12_kuhnya,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    Material(
+                      elevation: 30.0,
+                      shadowColor: ColorStyles.blue_color.withOpacity(0.1),
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 140,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: <Widget>[
+                            AddImageWidget(),
+                            Container(
+                              width: 20,
+                              color: ColorStyles.blue_color.withOpacity(0.05),
+                            ),
+                            AddImageWidget(),
+                            Container(
+                              width: 20,
+                              color: ColorStyles.blue_color.withOpacity(0.05),
+                            ),
+                            AddImageWidget(),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputListDesign(
+                      hintTextBack: 'Есть балкон или нет',
+                      itemsFrom: list_field18_telephone,
+                      controller: field13_balkon,
+                      func: widget.returnText,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputInfoDesign(
+                      hintTextOut: 'Количество ванных комнат',
+                      controller: field14_vanna,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputInfoDesign(
+                      hintTextOut: 'Количество туалетных комнат',
+                      controller: field15_toilet,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputInfoDesign(
+                      hintTextOut: 'Вспомогательные помещения',
+                      controller: field16_pomeshenie,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    Material(
+                      elevation: 30.0,
+                      shadowColor: ColorStyles.blue_color.withOpacity(0.1),
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 140,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: <Widget>[
+                            AddImageWidget(),
+                            Container(
+                              width: 20,
+                              color: ColorStyles.blue_color.withOpacity(0.05),
+                            ),
+                            AddImageWidget(),
+                            Container(
+                              width: 20,
+                              color: ColorStyles.blue_color.withOpacity(0.05),
+                            ),
+                            AddImageWidget(),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputInfoDesign(
+                      hintTextOut: 'Особенности планировки',
+                      controller: field17_osobennosti,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputListDesign(
+                      hintTextBack: 'Есть наличие охранной системы или нет',
+                      itemsFrom: list_field18_telephone,
+                      controller: field18_telephone,
+                      func: widget.returnText,
+                    ),
+                    SizedBox(
                       height: 100.h,
                     ),
                   ],
@@ -277,7 +420,7 @@ class _OsmotrPage3State extends State<OsmotrPage3> {
           print('${widget.hintText}');
           print('${widget.text}');
 
-          Navigator.pushNamed(context, Routes.OSMOTR3);
+          Navigator.pushNamed(context, Routes.OSMOTR4);
         },
         tooltip: 'Далее',
         child: Icon(PropertyValuationIcons.arrowright),

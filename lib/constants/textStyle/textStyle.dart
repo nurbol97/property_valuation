@@ -82,6 +82,13 @@ class TextStyles {
     letterSpacing: 0.5,
   );
 
+  static const TextStyle black_14_w500 = TextStyle(
+      fontFamily: 'UIDisplay',
+      fontStyle: FontStyle.normal,
+      fontSize: 14,
+      fontWeight: FontWeight.w600,
+      color: ColorStyles.brand_black);
+
   static const TextStyle black_12_w600 = TextStyle(
       fontFamily: 'UIDisplay',
       fontStyle: FontStyle.normal,
