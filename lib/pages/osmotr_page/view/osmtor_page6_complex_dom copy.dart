@@ -7,11 +7,12 @@ import 'package:property_valuation/constants/textStyle/textStyle.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:property_valuation/pages/osmotr_page/widget/input_doubleInfo_widget.dart';
+import 'package:property_valuation/pages/osmotr_page/widget/input_info_widget.dart';
 
 import 'package:property_valuation/pages/start_page/screen/widgets/input_list_design.dart';
 import 'package:property_valuation/routes/app_routes.dart';
 
-class OsmotrPage7Kvartira extends StatefulWidget {
+class OsmotrPage6ComplexDom extends StatefulWidget {
   String text;
   String hintText;
 
@@ -21,32 +22,40 @@ class OsmotrPage7Kvartira extends StatefulWidget {
   }
 
   @override
-  _OsmotrPage7KvartiraState createState() => _OsmotrPage7KvartiraState();
+  _OsmotrPage6ComplexDomState createState() => _OsmotrPage6ComplexDomState();
 }
 
-class _OsmotrPage7KvartiraState extends State<OsmotrPage7Kvartira> {
-  TextEditingController field1_planirovka;
-  TextEditingController field2_etazh;
-  TextEditingController field3_uglovaya;
+class _OsmotrPage6ComplexDomState extends State<OsmotrPage6ComplexDom> {
+  TextEditingController field1_name_complex;
+  TextEditingController field2_ispolzovanie;
+  TextEditingController field3_lift;
+  TextEditingController field4_sostoyanie_podiezda;
+  TextEditingController field5_sostoyanie_santekhniki;
 
-  List<String> list_field1_planirovka = [
-    "обычная",
-    "улучшенная",
-    "евростандарт",
-    "бывшее приватизированное общежитие",
+  List<String> list_field2_ispolzovanie = [
+    "жилая квартира",
+    "нежилая квартира"
   ];
 
-  List<String> list_field2_etazh = [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-  ];
-
-  List<String> list_field3_uglovaya = [
-    "Да",
+  List<String> list_field3_lift = [
+    "Есть",
     "Нет",
+  ];
+  List<String> list_field4_sostoyanie_podiezda = [
+    "отличное",
+    "хорошее",
+    "удовлетворительное",
+    "неудовлетворительное",
+    "Другое",
+  ];
+
+  List<String> list_field5_sostoyanie_santekhniki = [
+    "отличное",
+    "хорошее",
+    "среднее",
+    "удовлетворительное",
+    "неудовлетворительное",
+    "Другое",
   ];
 
   String drugoe = '';
@@ -95,7 +104,7 @@ class _OsmotrPage7KvartiraState extends State<OsmotrPage7Kvartira> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Характеристика квартиры',
+                          'Характеристика дома',
                           style: TextStyles.black_12_w600,
                         ),
                         Container(
@@ -107,7 +116,7 @@ class _OsmotrPage7KvartiraState extends State<OsmotrPage7Kvartira> {
                           width: 76,
                           child: Center(
                               child: Text(
-                            '7 шаг из 8',
+                            '6 шаг из 8',
                             style: TextStyles.orange_12_w500,
                           )),
                         )
@@ -116,27 +125,43 @@ class _OsmotrPage7KvartiraState extends State<OsmotrPage7Kvartira> {
                     SizedBox(
                       height: 30.h,
                     ),
-                    InputListDesign(
-                      hintTextBack: 'Планировка',
-                      itemsFrom: list_field1_planirovka,
-                      controller: field1_planirovka,
+                    InputInfoDesign(
+                      hintTextOut: 'Наименование жилого комплекса',
+                      controller: field1_name_complex,
                     ),
                     SizedBox(
                       height: 20.h,
                     ),
                     InputListDesign(
-                      hintTextBack: 'Этаж',
-                      itemsFrom: list_field2_etazh,
-                      controller: field2_etazh,
+                      hintTextBack: 'Целевое использование',
+                      itemsFrom: list_field2_ispolzovanie,
+                      controller: field2_ispolzovanie,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputListDesign(
+                      hintTextBack: 'Есть лифт или нет',
+                      itemsFrom: list_field3_lift,
+                      controller: field3_lift,
                       func: widget.returnText,
                     ),
                     SizedBox(
                       height: 20.h,
                     ),
                     InputListDesign(
-                      hintTextBack: 'Угловая',
-                      itemsFrom: list_field3_uglovaya,
-                      controller: field3_uglovaya,
+                      hintTextBack: 'Техническое состояние подъезда',
+                      itemsFrom: list_field4_sostoyanie_podiezda,
+                      controller: field4_sostoyanie_podiezda,
+                      func: widget.returnText,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputListDesign(
+                      hintTextBack: 'Сантехническое состояние',
+                      itemsFrom: list_field5_sostoyanie_santekhniki,
+                      controller: field5_sostoyanie_santekhniki,
                       func: widget.returnText,
                     ),
                     SizedBox(
@@ -156,7 +181,7 @@ class _OsmotrPage7KvartiraState extends State<OsmotrPage7Kvartira> {
           print('${widget.hintText}');
           print('${widget.text}');
 
-          Navigator.pushNamed(context, Routes.OSMOTR8_SAVE_OSMOTR);
+          Navigator.pushNamed(context, Routes.OSMOTR7_COMPLEX_KVARTIRA);
         },
         tooltip: 'Далее',
         child: Icon(PropertyValuationIcons.arrowright),

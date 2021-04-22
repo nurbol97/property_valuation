@@ -12,7 +12,7 @@ import 'package:property_valuation/pages/osmotr_page/widget/input_info_widget.da
 import 'package:property_valuation/pages/start_page/screen/widgets/input_list_design.dart';
 import 'package:property_valuation/routes/app_routes.dart';
 
-class OsmotrPage6Dom extends StatefulWidget {
+class OsmotrPage6ComplexDom extends StatefulWidget {
   String text;
   String hintText;
 
@@ -22,10 +22,10 @@ class OsmotrPage6Dom extends StatefulWidget {
   }
 
   @override
-  _OsmotrPage6DomState createState() => _OsmotrPage6DomState();
+  _OsmotrPage6ComplexDomState createState() => _OsmotrPage6ComplexDomState();
 }
 
-class _OsmotrPage6DomState extends State<OsmotrPage6Dom> {
+class _OsmotrPage6ComplexDomState extends State<OsmotrPage6ComplexDom> {
   TextEditingController field1_name_complex;
   TextEditingController field2_ispolzovanie;
   TextEditingController field3_lift;
@@ -181,7 +181,7 @@ class _OsmotrPage6DomState extends State<OsmotrPage6Dom> {
           print('${widget.hintText}');
           print('${widget.text}');
 
-          Navigator.pushNamed(context, Routes.OSMOTR7_KVARTIRA);
+          Navigator.pushNamed(context, Routes.OSMOTR7_COMPLEX_KVARTIRA);
         },
         tooltip: 'Далее',
         child: Icon(PropertyValuationIcons.arrowright),

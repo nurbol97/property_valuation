@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:property_valuation/constants/btn_design/entreBtnBlue.dart';
 
 import 'package:property_valuation/constants/colors/colorStyle.dart';
 
@@ -9,6 +10,7 @@ import 'package:property_valuation/pages/home_page/screen/widget/orderfield_card
 import 'package:property_valuation/pages/home_page/screen/widget/search_widget.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:property_valuation/routes/app_routes.dart';
 
 class HomePage extends StatelessWidget {
   List<OrderModel> orders;
@@ -40,20 +42,27 @@ class HomePage extends StatelessWidget {
                     controller: controller,
                     onChanged: onChanged,
                   ),
+                  EntreBtnDesignBlue(
+                    text: "Начать осмотр",
+                    onSave: () {
+                      Navigator.pushNamed(context, Routes.OSMOTR1);
+                    },
+                    isActivated: true,
+                  )
                 ],
               ),
             ),
-            orders != null
-                ? ListView.builder(
-                    padding: EdgeInsets.zero,
-                    itemCount: orders.length,
-                    itemBuilder: (context, index) {
-                      return OrderFieldCard(orders[index]);
-                    },
-                  )
-                : Center(
-                    child: Container(child: CircularProgressIndicator()),
-                  ),
+            // orders != null
+            //     ? ListView.builder(
+            //         padding: EdgeInsets.zero,
+            //         itemCount: orders.length,
+            //         itemBuilder: (context, index) {
+            //           return OrderFieldCard(orders[index]);
+            //         },
+            //       )
+            //     : Center(
+            //         child: Container(child: CircularProgressIndicator()),
+            //       ),
           ],
         ),
         // child: SingleChildScrollView(

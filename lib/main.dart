@@ -3,12 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:property_valuation/pages/home_page/screen/view/home_page.dart';
 import 'package:property_valuation/pages/osmotr_page/view/osmotr_page1.dart';
 import 'package:property_valuation/pages/osmotr_page/view/osmotr_page2.dart';
-import 'package:property_valuation/pages/osmotr_page/view/osmtor_page3.dart';
-import 'package:property_valuation/pages/osmotr_page/view/osmtor_page4.dart';
-import 'package:property_valuation/pages/osmotr_page/view/osmtor_page5.dart';
-import 'package:property_valuation/pages/osmotr_page/view/osmtor_page6_dom.dart';
-import 'package:property_valuation/pages/osmotr_page/view/osmtor_page7_kvartira.dart';
-import 'package:property_valuation/pages/osmotr_page/view/osmtor_page8_save_osmotr.dart';
+import 'package:property_valuation/pages/osmotr_page/view/osmotr_page3.dart';
+import 'package:property_valuation/pages/osmotr_page/view/osmotr_page4.dart';
+import 'package:property_valuation/pages/osmotr_page/view/osmotr_page5.dart';
+import 'package:property_valuation/pages/osmotr_page/view/osmotr_page6_complex_dom.dart';
+import 'package:property_valuation/pages/osmotr_page/view/osmotr_page6_dom_zemlya.dart';
+import 'package:property_valuation/pages/osmotr_page/view/osmotr_page7_complex_kvartira.dart';
+import 'package:property_valuation/pages/osmotr_page/view/osmotr_page7_dom.dart';
+import 'package:property_valuation/pages/osmotr_page/view/osmotr_page8_save_osmotr.dart';
 
 import 'package:property_valuation/pages/send_code_page/screen/view/send_code.dart';
 import 'package:property_valuation/pages/start_page/screen/view/startPoint.dart';
@@ -37,8 +39,10 @@ class MyApp extends StatelessWidget {
           Routes.OSMOTR3: (_) => OsmotrPage3(),
           Routes.OSMOTR4: (_) => OsmotrPage4(),
           Routes.OSMOTR5: (_) => OsmotrPage5(),
-          Routes.OSMOTR6_DOM: (_) => OsmotrPage6Dom(),
-          Routes.OSMOTR7_KVARTIRA: (_) => OsmotrPage7Kvartira(),
+          Routes.OSMOTR6_COMPLEX_DOM: (_) => OsmotrPage6ComplexDom(),
+          Routes.OSMOTR7_COMPLEX_KVARTIRA: (_) => OsmotrPage7ComplexKvartira(),
+          Routes.OSMOTR6_DOM_ZEMLYA: (_) => OsmotrPage6DomZemlya(),
+          Routes.OSMOTR7_DOM: (_) => OsmotrPage7Dom(),
           Routes.OSMOTR8_SAVE_OSMOTR: (_) => OsmotrPage8SaveOsmotr(),
         },
         onUnknownRoute: (RouteSettings settings) {
