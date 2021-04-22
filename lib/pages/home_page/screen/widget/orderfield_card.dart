@@ -154,13 +154,6 @@ class OrderFieldCard extends StatelessWidget {
                 SizedBox(
                   height: 15.h,
                 ),
-                EntreBtnDesignBlue(
-                  text: "Начать осмотр",
-                  onSave: () {
-                    Navigator.pushNamed(context, Routes.OSMOTR1);
-                  },
-                  isActivated: true,
-                )
               ],
             ),
           ),
