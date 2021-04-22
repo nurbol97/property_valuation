@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 class OrderRepository {
   Future<List<OrderModel>> fetchOrders() async {
-    String url = 'http://192.168.100.156:8000/api/bids/';
+    String url = 'http://192.168.8.101/api/bids/';
 
     try {
       dynamic response = await http.get(Uri.parse(url), headers: {

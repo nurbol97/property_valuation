@@ -24,6 +24,7 @@ class EntreBottomTextDesign extends StatelessWidget {
         }
 
         fetchAndSetReminders();
+        print(_orders);
         Navigator.of(context).pushReplacement(
           //new
           new MaterialPageRoute(

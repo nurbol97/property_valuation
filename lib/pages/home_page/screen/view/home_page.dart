@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
     Function onChanged;
     return Scaffold(
       body: SafeArea(
-        child: ListView(
+        child: Column(
           children: [
             Container(
               padding: EdgeInsets.only(left: 20, top: 25, right: 20),
@@ -40,12 +40,46 @@ class HomePage extends StatelessWidget {
                     controller: controller,
                     onChanged: onChanged,
                   ),
-                  OrderFieldCard(),
                 ],
               ),
             ),
+            orders != null
+                ? ListView.builder(
+                    padding: EdgeInsets.zero,
+                    itemCount: orders.length,
+                    itemBuilder: (context, index) {
+                      return OrderFieldCard(orders[index]);
+                    },
+                  )
+                : Center(
+                    child: Container(child: CircularProgressIndicator()),
+                  ),
           ],
         ),
+        // child: SingleChildScrollView(
+        // child: Container(
+        //   padding: EdgeInsets.only(left: 20, top: 25, right: 20),
+        //   color: ColorStyles.background_color,
+        //   child: Column(
+        //     crossAxisAlignment: CrossAxisAlignment.start,
+        //     children: [
+        //       Container(
+        //         child: Text(
+        //           'Мои заявки',
+        //           style: TextStyles.black30_w700,
+        //         ),
+        //       ),
+        //       SizedBox(
+        //         height: 20.h,
+        //       ),
+        //       SearchWidget(
+        //         controller: controller,
+        //         onChanged: onChanged,
+        //       ),
+        //     ],
+        //   ),
+        // ),
+        // ),
       ),
     );
   }

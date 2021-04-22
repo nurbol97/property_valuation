@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:property_valuation/constants/btn_design/entreBtnBlue.dart';
 import 'package:property_valuation/constants/btn_design/small_back_btn.dart';
 import 'package:property_valuation/constants/colors/colorStyle.dart';
 import 'package:property_valuation/constants/icon/property_valuation_icons.dart';
@@ -143,6 +144,20 @@ class _OsmotrPage8SaveOsmotrState extends State<OsmotrPage8SaveOsmotr> {
                       ),
                     ),
                     SizedBox(
+                      height: 20.h,
+                    ),
+                    EntreBtnDesignBlue(
+                        text: 'Завершить осмотр',
+                        isActivated: true,
+                        onSave: fileIsVisible
+                            ? () {
+                                Navigator.pushNamed(context, Routes.HOME);
+
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(content: Text("Success")));
+                              }
+                            : null),
+                    SizedBox(
                       height: 100.h,
                     ),
                   ],
@@ -151,18 +166,6 @@ class _OsmotrPage8SaveOsmotrState extends State<OsmotrPage8SaveOsmotr> {
             ),
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: ColorStyles.blue_color,
-        onPressed: () {
-          print('asdasd');
-          print('${widget.hintText}');
-          print('${widget.text}');
-
-          Navigator.pushNamed(context, Routes.OSMOTR7_KVARTIRA);
-        },
-        tooltip: 'Далее',
-        child: Icon(PropertyValuationIcons.arrowright),
       ),
     );
   }
