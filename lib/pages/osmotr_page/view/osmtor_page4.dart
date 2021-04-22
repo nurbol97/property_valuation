@@ -138,7 +138,7 @@ class _OsmotrPage4State extends State<OsmotrPage4> {
                           width: 76,
                           child: Center(
                               child: Text(
-                            '4 шаг из 7',
+                            '4 шаг из 8',
                             style: TextStyles.orange_12_w500,
                           )),
                         )

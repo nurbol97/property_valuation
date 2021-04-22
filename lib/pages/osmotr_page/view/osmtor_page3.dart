@@ -163,7 +163,7 @@ class _OsmotrPage3State extends State<OsmotrPage3> {
                           width: 76,
                           child: Center(
                               child: Text(
-                            '3 шаг из 7',
+                            '3 шаг из 8',
                             style: TextStyles.orange_12_w500,
                           )),
                         )

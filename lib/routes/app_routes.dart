@@ -7,4 +7,7 @@ class Routes {
   static const OSMOTR3 = '/osmotr3';
   static const OSMOTR4 = '/osmotr4';
   static const OSMOTR5 = '/osmotr5';
+  static const OSMOTR6_DOM = '/osmotr6_dom';
+  static const OSMOTR7_KVARTIRA = '/osmotr7_kvartira';
+  static const OSMOTR8_SAVE_OSMOTR = '/osmotr8_save_osmotr';
 }

@@ -1,21 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:property_valuation/constants/btn_design/small_back_btn.dart';
 import 'package:property_valuation/constants/colors/colorStyle.dart';
 import 'package:property_valuation/constants/icon/property_valuation_icons.dart';
 import 'package:property_valuation/constants/textStyle/textStyle.dart';
-import 'package:property_valuation/pages/osmotr_page/widget/add_address_map_widget.dart';
-import 'package:property_valuation/pages/osmotr_page/widget/add_image_widget.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:property_valuation/pages/osmotr_page/widget/input_raiony_widget.dart';
+import 'package:property_valuation/pages/osmotr_page/widget/add_file_widget.dart';
+import 'package:property_valuation/pages/osmotr_page/widget/added_file_widget.dart';
+import 'package:property_valuation/pages/osmotr_page/widget/input_dateinfo_widget.dart';
+import 'package:property_valuation/pages/osmotr_page/widget/input_doubleInfo_widget.dart';
 import 'package:property_valuation/pages/osmotr_page/widget/input_info_widget.dart';
-import 'package:property_valuation/pages/start_page/screen/widgets/input_city_design.dart';
+
+import 'package:property_valuation/pages/start_page/screen/widgets/input_list_design.dart';
 import 'package:property_valuation/routes/app_routes.dart';
 
-class OsmotrPage1 extends StatelessWidget {
-  TextEditingController streetController;
-  TextEditingController homeNumberController;
-  TextEditingController sosednieStreetController;
+class OsmotrPage8SaveOsmotr extends StatefulWidget {
+  String text;
+  String hintText;
+
+  void returnText(String text, String hintText) {
+    this.text = text;
+    this.hintText = hintText;
+  }
+
+  @override
+  _OsmotrPage8SaveOsmotrState createState() => _OsmotrPage8SaveOsmotrState();
+}
+
+class _OsmotrPage8SaveOsmotrState extends State<OsmotrPage8SaveOsmotr> {
+  TextEditingController field1_osmotr_proizel;
+  TextEditingController field2_data_osmotra;
+  TextEditingController field3_prisutsvoval;
+  TextEditingController field4_file;
+
+  bool fileIsVisible = false;
+  String drugoe = '';
+
+  void backController(String text, String hintext) {
+    if (hintext == 'Расположение прилегающей территории')
+      setState(() {
+        drugoe = text;
+      });
+  }
+
+  @override
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +81,7 @@ class OsmotrPage1 extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Месторасположение',
+                          'Характеристика дома',
                           style: TextStyles.black_12_w600,
                         ),
                         Container(
@@ -64,7 +93,7 @@ class OsmotrPage1 extends StatelessWidget {
                           width: 76,
                           child: Center(
                               child: Text(
-                            '1 шаг из 8',
+                            '8 шаг из 8',
                             style: TextStyles.orange_12_w500,
                           )),
                         )
@@ -73,59 +102,48 @@ class OsmotrPage1 extends StatelessWidget {
                     SizedBox(
                       height: 30.h,
                     ),
-                    Container(
-                      alignment: Alignment.center,
-                      height: 140,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: <Widget>[
-                          AddImageWidget(),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          AddImageWidget(),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          AddImageWidget(),
-                        ],
+                    InputInfoDesign(
+                      hintTextOut: 'Осмотр произвел',
+                      controller: field1_osmotr_proizel,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputDateInfoDesign(
+                      hintTextOut: '09.03.2021',
+                      controller: field2_data_osmotra,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputInfoDesign(
+                      hintTextOut: 'При осмотре присутствовал (Ф.И.О)',
+                      controller: field3_prisutsvoval,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    Visibility(
+                      visible: !fileIsVisible,
+                      child: InkWell(
+                        child: AddFileWidget(),
+                        onTap: () {
+                          setState(() {
+                            fileIsVisible = !fileIsVisible;
+                          });
+                        },
+                      ),
+                      replacement: InkWell(
+                        child: AddedFileDesign(),
+                        onTap: () {
+                          setState(() {
+                            fileIsVisible = !fileIsVisible;
+                          });
+                        },
                       ),
                     ),
                     SizedBox(
-                      height: 40.h,
-                    ),
-                    AddAddressInTheMap(),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    InputCityDesign(),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    InputRaionyDesign(),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    InputInfoDesign(
-                      hintTextOut: 'Пожалуйста введите вашу улицу',
-                      textInputType: TextInputType.streetAddress,
-                      controller: streetController,
-                    ),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    InputInfoDesign(
-                      hintTextOut: 'Номер дома',
-                      textInputType: TextInputType.number,
-                      controller: homeNumberController,
-                    ),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    InputInfoDesign(
-                      hintTextOut: 'Граничащие и соседние улицы',
-                      textInputType: TextInputType.number,
-                      controller: sosednieStreetController,
+                      height: 100.h,
                     ),
                   ],
                 ),
@@ -137,7 +155,11 @@ class OsmotrPage1 extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: ColorStyles.blue_color,
         onPressed: () {
-          Navigator.pushNamed(context, Routes.OSMOTR2);
+          print('asdasd');
+          print('${widget.hintText}');
+          print('${widget.text}');
+
+          Navigator.pushNamed(context, Routes.OSMOTR7_KVARTIRA);
         },
         tooltip: 'Далее',
         child: Icon(PropertyValuationIcons.arrowright),

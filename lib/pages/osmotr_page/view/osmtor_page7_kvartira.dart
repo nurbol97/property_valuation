@@ -1,21 +1,64 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:property_valuation/constants/btn_design/small_back_btn.dart';
 import 'package:property_valuation/constants/colors/colorStyle.dart';
 import 'package:property_valuation/constants/icon/property_valuation_icons.dart';
 import 'package:property_valuation/constants/textStyle/textStyle.dart';
-import 'package:property_valuation/pages/osmotr_page/widget/add_address_map_widget.dart';
-import 'package:property_valuation/pages/osmotr_page/widget/add_image_widget.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:property_valuation/pages/osmotr_page/widget/input_raiony_widget.dart';
-import 'package:property_valuation/pages/osmotr_page/widget/input_info_widget.dart';
-import 'package:property_valuation/pages/start_page/screen/widgets/input_city_design.dart';
+import 'package:property_valuation/pages/osmotr_page/widget/input_doubleInfo_widget.dart';
+
+import 'package:property_valuation/pages/start_page/screen/widgets/input_list_design.dart';
 import 'package:property_valuation/routes/app_routes.dart';
 
-class OsmotrPage1 extends StatelessWidget {
-  TextEditingController streetController;
-  TextEditingController homeNumberController;
-  TextEditingController sosednieStreetController;
+class OsmotrPage7Kvartira extends StatefulWidget {
+  String text;
+  String hintText;
+
+  void returnText(String text, String hintText) {
+    this.text = text;
+    this.hintText = hintText;
+  }
+
+  @override
+  _OsmotrPage7KvartiraState createState() => _OsmotrPage7KvartiraState();
+}
+
+class _OsmotrPage7KvartiraState extends State<OsmotrPage7Kvartira> {
+  TextEditingController field1_planirovka;
+  TextEditingController field2_etazh;
+  TextEditingController field3_uglovaya;
+
+  List<String> list_field1_planirovka = [
+    "обычная",
+    "улучшенная",
+    "евростандарт",
+    "бывшее приватизированное общежитие",
+  ];
+
+  List<String> list_field2_etazh = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+  ];
+
+  List<String> list_field3_uglovaya = [
+    "Да",
+    "Нет",
+  ];
+
+  String drugoe = '';
+
+  void backController(String text, String hintext) {
+    if (hintext == 'Расположение прилегающей территории')
+      setState(() {
+        drugoe = text;
+      });
+  }
+
+  @override
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +95,7 @@ class OsmotrPage1 extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Месторасположение',
+                          'Характеристика квартиры',
                           style: TextStyles.black_12_w600,
                         ),
                         Container(
@@ -64,7 +107,7 @@ class OsmotrPage1 extends StatelessWidget {
                           width: 76,
                           child: Center(
                               child: Text(
-                            '1 шаг из 8',
+                            '7 шаг из 8',
                             style: TextStyles.orange_12_w500,
                           )),
                         )
@@ -73,59 +116,31 @@ class OsmotrPage1 extends StatelessWidget {
                     SizedBox(
                       height: 30.h,
                     ),
-                    Container(
-                      alignment: Alignment.center,
-                      height: 140,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: <Widget>[
-                          AddImageWidget(),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          AddImageWidget(),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          AddImageWidget(),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 40.h,
-                    ),
-                    AddAddressInTheMap(),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    InputCityDesign(),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    InputRaionyDesign(),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    InputInfoDesign(
-                      hintTextOut: 'Пожалуйста введите вашу улицу',
-                      textInputType: TextInputType.streetAddress,
-                      controller: streetController,
+                    InputListDesign(
+                      hintTextBack: 'Планировка',
+                      itemsFrom: list_field1_planirovka,
+                      controller: field1_planirovka,
                     ),
                     SizedBox(
                       height: 20.h,
                     ),
-                    InputInfoDesign(
-                      hintTextOut: 'Номер дома',
-                      textInputType: TextInputType.number,
-                      controller: homeNumberController,
+                    InputListDesign(
+                      hintTextBack: 'Этаж',
+                      itemsFrom: list_field2_etazh,
+                      controller: field2_etazh,
+                      func: widget.returnText,
                     ),
                     SizedBox(
                       height: 20.h,
                     ),
-                    InputInfoDesign(
-                      hintTextOut: 'Граничащие и соседние улицы',
-                      textInputType: TextInputType.number,
-                      controller: sosednieStreetController,
+                    InputListDesign(
+                      hintTextBack: 'Угловая',
+                      itemsFrom: list_field3_uglovaya,
+                      controller: field3_uglovaya,
+                      func: widget.returnText,
+                    ),
+                    SizedBox(
+                      height: 100.h,
                     ),
                   ],
                 ),
@@ -137,7 +152,11 @@ class OsmotrPage1 extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: ColorStyles.blue_color,
         onPressed: () {
-          Navigator.pushNamed(context, Routes.OSMOTR2);
+          print('asdasd');
+          print('${widget.hintText}');
+          print('${widget.text}');
+
+          Navigator.pushNamed(context, Routes.OSMOTR8_SAVE_OSMOTR);
         },
         tooltip: 'Далее',
         child: Icon(PropertyValuationIcons.arrowright),

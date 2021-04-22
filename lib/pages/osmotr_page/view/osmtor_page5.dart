@@ -7,6 +7,7 @@ import 'package:property_valuation/constants/textStyle/textStyle.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:property_valuation/pages/osmotr_page/widget/input_doubleInfo_widget.dart';
+import 'package:property_valuation/pages/osmotr_page/widget/input_info_widget.dart';
 import 'package:property_valuation/pages/osmotr_page/widget/radio_button_design.dart';
 
 import 'package:property_valuation/pages/start_page/screen/widgets/input_list_design.dart';
@@ -41,54 +42,83 @@ class _OsmotrPage5State extends State<OsmotrPage5> {
     });
   }
 
-  TextEditingController field1_eletktro;
-  TextEditingController field2_gaz;
-  TextEditingController field3_voda_holod;
-  TextEditingController field4_voda_teploe;
-  TextEditingController field5_kanalizacia;
-  TextEditingController field6_otoplenie;
-  TextEditingController field7_podval;
-  TextEditingController field7_podval_text2;
-  List<String> list_field1_eletktro = [
-    "Центральное",
-    "Автономное",
-    "Отсутствует",
+  TextEditingController field1_vhod_dver;
+  TextEditingController field2_mezh_dver;
+  TextEditingController field3_okna;
+  TextEditingController field4_pol;
+  TextEditingController field5_potolok;
+  TextEditingController field6_vnutr_stena;
+  TextEditingController field7_naruzh_stena;
+  TextEditingController field8_santekhnika;
+  TextEditingController field9_vodoprod_truby;
+  TextEditingController field10_kanalizacia_truby;
+  TextEditingController field11_shetchik_vody;
+  TextEditingController field12_radiatory;
+  TextEditingController field13_planirovka;
+  TextEditingController field14_god_remonta;
+  TextEditingController field15_dopolnitelno;
+  List<String> list_field3_okna = [
+    "Деревянные",
+    "Металлопластиковые",
+    "Зарешеченные",
+    "Алюминиевые"
   ];
 
-  List<String> list_field2_gaz = [
-    "Центральный",
-    "Привозной",
-    "Отсутствует",
-    "Другое"
+  List<String> list_field4_pol = [
+    "Линолеум",
+    "Деревянные",
+    "Паркет",
+    "Ламинат",
+    "Кафель",
+    "Другое",
   ];
 
-  List<String> list_field3_voda_holod = [
-    "Центральное",
-    "Автономное",
-    "Отсутствует",
+  List<String> list_field5_potolok = [
+    "Побелка",
+    "Эмульсия",
+    "Подвесной",
+    "Левкас",
+    "Натяжной"
   ];
 
-  List<String> list_field4_voda_teploe = [
-    "Центральное",
-    "Автономное",
-    "Отсутствует",
+  List<String> list_field6_vnutr_stena = [
+    "Обои",
+    "Побелка",
+    "Левкас",
+    "Кафель",
+    "Другое",
   ];
 
-  List<String> list_field5_kanalizacia = [
-    "Центральная",
-    "Автономная",
-    "Отсутствует",
+  List<String> list_field7_naruzh_stena = [
+    "Расшивка швов",
+    "Декоративная отделка",
+    "Обшит сайдингом",
+    "Деревянные",
   ];
 
-  List<String> list_field6_otoplenie = [
-    "Центральное",
-    "Автономное",
-    "Отсутствует",
-  ];
-
-  List<String> list_field7_podval = [
+  List<String> list_field8_santekhnika = [
     "Есть",
     "Нет",
+  ];
+
+  List<String> list_field9_vodoprod_truby = [
+    "Пластиковые",
+    "Металлические",
+  ];
+
+  List<String> list_field10_kanalizacia_truby = [
+    "Пластиковые",
+    "Металлические",
+  ];
+  List<String> list_field11_shetchik_vody = [
+    "Есть",
+    "Нет",
+  ];
+
+  List<String> list_field12_radiatory = [
+    "Алюминиевые",
+    "Железные",
+    "Чугунные",
   ];
 
   String drugoe = '';
@@ -148,7 +178,7 @@ class _OsmotrPage5State extends State<OsmotrPage5> {
                           width: 76,
                           child: Center(
                               child: Text(
-                            '5 шаг из 7',
+                            '5 шаг из 8',
                             style: TextStyles.orange_12_w500,
                           )),
                         )
@@ -157,10 +187,20 @@ class _OsmotrPage5State extends State<OsmotrPage5> {
                     SizedBox(
                       height: 30.h,
                     ),
-                    InputListDesign(
-                      hintTextBack: 'Электроэнергия',
-                      itemsFrom: list_field1_eletktro,
-                      controller: field1_eletktro,
+                    InputInfoDesign(
+                      hintTextOut: 'Входная дверь',
+                      controller: field1_vhod_dver,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    RadioButtonDesign(),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputInfoDesign(
+                      hintTextOut: 'Межкомнатные двери',
+                      controller: field2_mezh_dver,
                     ),
                     SizedBox(
                       height: 20.h,
@@ -170,55 +210,144 @@ class _OsmotrPage5State extends State<OsmotrPage5> {
                       height: 20.h,
                     ),
                     InputListDesign(
-                      hintTextBack: 'Газоснабжение',
-                      itemsFrom: list_field2_gaz,
-                      controller: field2_gaz,
+                      hintTextBack: 'Окна',
+                      itemsFrom: list_field3_okna,
+                      controller: field3_okna,
+                      func: widget.returnText,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    RadioButtonDesign(),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputListDesign(
+                      hintTextBack: 'Пол',
+                      itemsFrom: list_field4_pol,
+                      controller: field4_pol,
+                      func: widget.returnText,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    RadioButtonDesign(),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputListDesign(
+                      hintTextBack: 'Потолок',
+                      itemsFrom: list_field5_potolok,
+                      controller: field5_potolok,
+                      func: widget.returnText,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    RadioButtonDesign(),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputListDesign(
+                      hintTextBack: 'Внутренняя отделка стен',
+                      itemsFrom: list_field6_vnutr_stena,
+                      controller: field6_vnutr_stena,
+                      func: widget.returnText,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    RadioButtonDesign(),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputListDesign(
+                      hintTextBack: 'Наружная отделка стен',
+                      itemsFrom: list_field7_naruzh_stena,
+                      controller: field7_naruzh_stena,
+                      func: widget.returnText,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    RadioButtonDesign(),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputListDesign(
+                      hintTextBack: 'Есть сантехника или нет',
+                      itemsFrom: list_field8_santekhnika,
+                      controller: field8_santekhnika,
+                      func: widget.returnText,
                     ),
                     SizedBox(
                       height: 20.h,
                     ),
                     InputListDesign(
-                      hintTextBack: 'Холодное водоснабжение',
-                      itemsFrom: list_field3_voda_holod,
-                      controller: field3_voda_holod,
+                      hintTextBack: 'Водопроводные трубы',
+                      itemsFrom: list_field9_vodoprod_truby,
+                      controller: field9_vodoprod_truby,
+                      func: widget.returnText,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    RadioButtonDesign(),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputListDesign(
+                      hintTextBack: 'Канализационные трубы',
+                      itemsFrom: list_field10_kanalizacia_truby,
+                      controller: field10_kanalizacia_truby,
+                      func: widget.returnText,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    RadioButtonDesign(),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputListDesign(
+                      hintTextBack: 'Есть наличие счетчиков воды или нет',
+                      itemsFrom: list_field10_kanalizacia_truby,
+                      controller: field10_kanalizacia_truby,
                       func: widget.returnText,
                     ),
                     SizedBox(
                       height: 20.h,
                     ),
                     InputListDesign(
-                      hintTextBack: 'Горячее водоснабжение',
-                      itemsFrom: list_field4_voda_teploe,
-                      controller: field4_voda_teploe,
+                      hintTextBack: 'Радиаторы',
+                      itemsFrom: list_field12_radiatory,
+                      controller: field12_radiatory,
                       func: widget.returnText,
                     ),
                     SizedBox(
                       height: 20.h,
                     ),
-                    InputListDesign(
-                      hintTextBack: 'Канализация',
-                      itemsFrom: list_field5_kanalizacia,
-                      controller: field5_kanalizacia,
-                      func: widget.returnText,
+                    RadioButtonDesign(),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    InputInfoDesign(
+                      hintTextOut: 'Наличие перепланировки / узаконенность',
+                      controller: field13_planirovka,
                     ),
                     SizedBox(
                       height: 20.h,
                     ),
-                    InputListDesign(
-                      hintTextBack: 'Отопление',
-                      itemsFrom: list_field6_otoplenie,
-                      controller: field6_otoplenie,
-                      func: widget.returnText,
+                    InputInfoDesign(
+                      hintTextOut: 'Год последнего кап. ремонта',
+                      controller: field14_god_remonta,
                     ),
                     SizedBox(
                       height: 20.h,
                     ),
-                    InputDoubleInfoDesign(
-                      hintTextBack: 'Подвальные помещения',
-                      itemsFrom: list_field7_podval,
-                      controller: field7_podval,
-                      func: widget.returnText,
-                      text2Controller: field7_podval_text2,
+                    InputInfoDesign(
+                      hintTextOut: 'Дополнительно',
+                      controller: field15_dopolnitelno,
                     ),
                     SizedBox(
                       height: 100.h,
@@ -237,7 +366,7 @@ class _OsmotrPage5State extends State<OsmotrPage5> {
           print('${widget.hintText}');
           print('${widget.text}');
 
-          Navigator.pushNamed(context, Routes.OSMOTR3);
+          Navigator.pushNamed(context, Routes.OSMOTR6_DOM);
         },
         tooltip: 'Далее',
         child: Icon(PropertyValuationIcons.arrowright),

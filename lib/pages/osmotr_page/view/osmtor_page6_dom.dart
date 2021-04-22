@@ -6,14 +6,13 @@ import 'package:property_valuation/constants/icon/property_valuation_icons.dart'
 import 'package:property_valuation/constants/textStyle/textStyle.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:property_valuation/pages/osmotr_page/widget/input_doubleInfo_widget.dart';
 import 'package:property_valuation/pages/osmotr_page/widget/input_info_widget.dart';
-import 'package:property_valuation/pages/osmotr_page/widget/input_othertext_widget.dart';
 
 import 'package:property_valuation/pages/start_page/screen/widgets/input_list_design.dart';
 import 'package:property_valuation/routes/app_routes.dart';
 
-class OsmotrPage2 extends StatefulWidget {
+class OsmotrPage6Dom extends StatefulWidget {
   String text;
   String hintText;
 
@@ -23,69 +22,40 @@ class OsmotrPage2 extends StatefulWidget {
   }
 
   @override
-  _OsmotrPage2State createState() => _OsmotrPage2State();
+  _OsmotrPage6DomState createState() => _OsmotrPage6DomState();
 }
 
-class _OsmotrPage2State extends State<OsmotrPage2> {
-  TextEditingController streetController;
+class _OsmotrPage6DomState extends State<OsmotrPage6Dom> {
+  TextEditingController field1_name_complex;
+  TextEditingController field2_ispolzovanie;
+  TextEditingController field3_lift;
+  TextEditingController field4_sostoyanie_podiezda;
+  TextEditingController field5_sostoyanie_santekhniki;
 
-  TextEditingController homeNumberController;
-
-  TextEditingController sosednieStreetController;
-
-  TextEditingController raspolozhenieController;
-
-  TextEditingController busController;
-
-  TextEditingController eduController;
-
-  TextEditingController drugoeRaspolojenieController;
-
-  List<String> dostup = [
-    "Нур-султан (Астана)",
-    "Алматы",
-    "Атырау",
-    "Актау",
-    "Актобе",
-    "Караганда",
-    "Кокшетау",
-    "Костанай",
-    "Кызылорда",
-    "Павлодар",
-    "Петропавловск",
-    "Талдыкорган",
-    "Тараз",
-    "Туркестан",
-    "Уральск",
-    "Усть-Каменогорск",
+  List<String> list_field2_ispolzovanie = [
+    "жилая квартира",
+    "нежилая квартира"
   ];
 
-  List<String> bus = [
-    "Высокая",
-    "Хорошая",
-    "Средняя",
-    "Удовлетворительная",
-    "Низкая",
+  List<String> list_field3_lift = [
+    "Есть",
+    "Нет",
   ];
-
-  List<String> raspolojenie = [
-    "На проезжей части",
-    "Вблизи дороги",
-    "Далеко от дороги",
+  List<String> list_field4_sostoyanie_podiezda = [
+    "отличное",
+    "хорошее",
+    "удовлетворительное",
+    "неудовлетворительное",
     "Другое",
   ];
 
-  List<String> ucheba = [
-    "Школы",
-    "Дет/сады",
-    "ВУЗЫ",
-  ];
-
-  List<String> chistota = [
-    "Отличная",
-    "Хорошая",
-    "Удовлетворительная",
-    "Неудовлетворительная",
+  List<String> list_field5_sostoyanie_santekhniki = [
+    "отличное",
+    "хорошее",
+    "среднее",
+    "удовлетворительное",
+    "неудовлетворительное",
+    "Другое",
   ];
 
   String drugoe = '';
@@ -134,7 +104,7 @@ class _OsmotrPage2State extends State<OsmotrPage2> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Прилегающая территория',
+                          'Характеристика дома',
                           style: TextStyles.black_12_w600,
                         ),
                         Container(
@@ -146,7 +116,7 @@ class _OsmotrPage2State extends State<OsmotrPage2> {
                           width: 76,
                           child: Center(
                               child: Text(
-                            '2 шаг из 8',
+                            '6 шаг из 8',
                             style: TextStyles.orange_12_w500,
                           )),
                         )
@@ -156,75 +126,46 @@ class _OsmotrPage2State extends State<OsmotrPage2> {
                       height: 30.h,
                     ),
                     InputInfoDesign(
-                      hintTextOut: 'Год постройки',
-                      textInputType: TextInputType.streetAddress,
-                      controller: streetController,
+                      hintTextOut: 'Наименование жилого комплекса',
+                      controller: field1_name_complex,
                     ),
                     SizedBox(
                       height: 20.h,
                     ),
                     InputListDesign(
-                      hintTextBack: 'Доступность общественного транспорта',
-                      itemsFrom: bus,
-                      controller: busController,
+                      hintTextBack: 'Целевое использование',
+                      itemsFrom: list_field2_ispolzovanie,
+                      controller: field2_ispolzovanie,
                     ),
                     SizedBox(
                       height: 20.h,
                     ),
                     InputListDesign(
-                      hintTextBack: 'Близость учебных учреждений',
-                      itemsFrom: ucheba,
-                      controller: eduController,
-                    ),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    InputInfoDesign(
-                      hintTextOut: 'Наименование учебного учреждения',
-                      textInputType: TextInputType.text,
-                      controller: streetController,
-                    ),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    InputInfoDesign(
-                      hintTextOut: 'Близость к торговым и культурным центрам',
-                      textInputType: TextInputType.text,
-                      controller: streetController,
-                    ),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    InputInfoDesign(
-                      hintTextOut: 'Инфраструктура района',
-                      textInputType: TextInputType.text,
-                      controller: streetController,
-                    ),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    InputListDesign(
-                      hintTextBack: 'Расположение прилегающей территории',
-                      itemsFrom: raspolojenie,
-                      controller: raspolozhenieController,
+                      hintTextBack: 'Есть лифт или нет',
+                      itemsFrom: list_field3_lift,
+                      controller: field3_lift,
                       func: widget.returnText,
                     ),
                     SizedBox(
                       height: 20.h,
                     ),
                     InputListDesign(
-                      hintTextBack: 'Чистота прилегающей территории',
-                      itemsFrom: chistota,
+                      hintTextBack: 'Техническое состояние подъезда',
+                      itemsFrom: list_field4_sostoyanie_podiezda,
+                      controller: field4_sostoyanie_podiezda,
+                      func: widget.returnText,
                     ),
                     SizedBox(
                       height: 20.h,
                     ),
-                    InputOtherText(
-                      controller: drugoeRaspolojenieController,
-                      hintTextOut: 'Комментарий',
+                    InputListDesign(
+                      hintTextBack: 'Сантехническое состояние',
+                      itemsFrom: list_field5_sostoyanie_santekhniki,
+                      controller: field5_sostoyanie_santekhniki,
+                      func: widget.returnText,
                     ),
                     SizedBox(
-                      height: 20.h,
+                      height: 100.h,
                     ),
                   ],
                 ),
@@ -240,7 +181,7 @@ class _OsmotrPage2State extends State<OsmotrPage2> {
           print('${widget.hintText}');
           print('${widget.text}');
 
-          Navigator.pushNamed(context, Routes.OSMOTR3);
+          Navigator.pushNamed(context, Routes.OSMOTR7_KVARTIRA);
         },
         tooltip: 'Далее',
         child: Icon(PropertyValuationIcons.arrowright),
