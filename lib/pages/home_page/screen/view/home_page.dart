@@ -2,18 +2,17 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:property_valuation/constants/btn_design/entreBtnBlue.dart';
-
 import 'package:property_valuation/constants/colors/colorStyle.dart';
-
 import 'package:property_valuation/constants/textStyle/textStyle.dart';
+
 import 'package:property_valuation/pages/home_page/screen/view/data/model/order.dart';
 
 import 'package:property_valuation/pages/home_page/screen/widget/orderfield_card.dart';
-import 'package:property_valuation/pages/home_page/screen/widget/search_widget.dart';
 
+import 'package:http/http.dart' as http;
+import 'package:property_valuation/pages/home_page/screen/widget/search_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:property_valuation/routes/app_routes.dart';
-import 'package:http/http.dart' as http;
 
 class HomePage extends StatelessWidget {
   Future<List<OrderModel>> fetchOrders() async {
@@ -93,54 +92,62 @@ class HomePage extends StatelessWidget {
     Function onChanged;
     return Scaffold(
       body: SafeArea(
-        child: FutureBuilder<List<OrderModel>>(
-          future: fetchOrders(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return ListView.builder(
-                padding: EdgeInsets.zero,
-                itemCount: snapshot.data.length,
-                itemBuilder: (context, index) {
-                  return OrderFieldCard(snapshot.data[index]);
-                },
-              );
-            } else if (snapshot.hasError) {
-              print(
-                snapshot.error.toString(),
-              );
-              return Text(
-                snapshot.error.toString(),
-              );
-            }
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          },
-
-          // child: SingleChildScrollView(
-          // child: Container(
-          //   padding: EdgeInsets.only(left: 20, top: 25, right: 20),
-          //   color: ColorStyles.background_color,
-          //   child: Column(
-          //     crossAxisAlignment: CrossAxisAlignment.start,
-          //     children: [
-          //       Container(
-          //         child: Text(
-          //           'Мои заявки',
-          //           style: TextStyles.black30_w700,
-          //         ),
-          //       ),
-          //       SizedBox(
-          //         height: 20.h,
-          //       ),
-          //       SearchWidget(
-          //         controller: controller,
-          //         onChanged: onChanged,
-          //       ),
-          //     ],
-          //   ),
-          // ),
-          // ),
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.only(left: 20, top: 25, right: 20),
+              color: ColorStyles.background_color,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    child: Text(
+                      'Мои заявки',
+                      style: TextStyles.black30_w700,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  SearchWidget(
+                    controller: controller,
+                    onChanged: onChanged,
+                  ),
+                ],
+              ),
+            ),
+            FutureBuilder<List<OrderModel>>(
+              future: fetchOrders(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return ListView.builder(
+                    padding: EdgeInsets.zero,
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (context, index) {
+                      return OrderFieldCard(snapshot.data[index]);
+                    },
+                  );
+                } else if (snapshot.hasError) {
+                  print(
+                    snapshot.error.toString(),
+                  );
+                  return Text(
+                    snapshot.error.toString(),
+                  );
+                }
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
+            ),
+            EntreBtnDesignBlue(
+              text: "Начать осмотр",
+              onSave: () {
+                Navigator.pushNamed(context, Routes.OSMOTR1);
+              },
+              isActivated: true,
+            )
+          ],
         ),
       ),
     );
