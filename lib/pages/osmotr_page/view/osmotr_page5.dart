@@ -366,7 +366,7 @@ class _OsmotrPage5State extends State<OsmotrPage5> {
           print('${widget.hintText}');
           print('${widget.text}');
 
-          Navigator.pushNamed(context, Routes.OSMOTR6_DOM_ZEMLYA);
+          Navigator.pushNamed(context, Routes.OSMOTR6_COMPLEX_DOM);
         },
         tooltip: 'Далее',
         child: Icon(PropertyValuationIcons.arrowright),
