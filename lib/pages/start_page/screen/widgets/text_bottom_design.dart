@@ -12,27 +12,12 @@ class EntreBottomTextDesign extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        OrderRepository orderRepository;
-        List<OrderModel> _orders = [];
-
-        Future<void> fetchAndSetReminders({int month}) async {
-          try {
-            _orders = await orderRepository.fetchOrders();
-          } catch (err) {
-            throw err;
-          }
-        }
-
-        fetchAndSetReminders();
-        print(_orders);
         Navigator.of(context).pushReplacement(
           //new
           new MaterialPageRoute(
             //new
 
-            builder: (context) => new HomePage(
-              orders: _orders,
-            ), //new
+            builder: (context) => new HomePage(), //new
           ), //new
         ); //new
       },

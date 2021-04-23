@@ -7,6 +7,7 @@ import 'package:property_valuation/constants/textStyle/textStyle.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:property_valuation/pages/osmotr_page/widget/input_doubleInfo_widget.dart';
+import 'package:property_valuation/pages/osmotr_page/widget/input_info_widget.dart';
 
 import 'package:property_valuation/pages/start_page/screen/widgets/input_list_design.dart';
 import 'package:property_valuation/routes/app_routes.dart';
@@ -25,9 +26,10 @@ class OsmotrPage7Dom extends StatefulWidget {
 }
 
 class _OsmotrPage7DomState extends State<OsmotrPage7Dom> {
-  TextEditingController field1_planirovka;
-  TextEditingController field2_etazh;
-  TextEditingController field3_uglovaya;
+  TextEditingController field1_ploshad;
+  TextEditingController field2_urovni;
+  TextEditingController field3_fundament;
+  TextEditingController field4_fundament;
 
   List<String> list_field1_planirovka = [
     "обычная",
@@ -95,7 +97,7 @@ class _OsmotrPage7DomState extends State<OsmotrPage7Dom> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Характеристика квартиры',
+                          'Характеристика дома',
                           style: TextStyles.black_12_w600,
                         ),
                         Container(
@@ -116,29 +118,36 @@ class _OsmotrPage7DomState extends State<OsmotrPage7Dom> {
                     SizedBox(
                       height: 30.h,
                     ),
-                    InputListDesign(
-                      hintTextBack: 'Планировка',
-                      itemsFrom: list_field1_planirovka,
-                      controller: field1_planirovka,
-                    ),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    InputListDesign(
-                      hintTextBack: 'Этаж',
-                      itemsFrom: list_field2_etazh,
-                      controller: field2_etazh,
-                      func: widget.returnText,
-                    ),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    InputListDesign(
-                      hintTextBack: 'Угловая',
-                      itemsFrom: list_field3_uglovaya,
-                      controller: field3_uglovaya,
-                      func: widget.returnText,
-                    ),
+                    // InputInfoDesign(
+                    //   hintTextOut: 'Площадь застройки (кв/метра)',
+                    //   controller: field3_kadastr,
+                    // ),
+                    // SizedBox(
+                    //   height: 20.h,
+                    // ),
+                    // InputListDesign(
+                    //   hintTextBack: 'Планировка',
+                    //   itemsFrom: list_field1_planirovka,
+                    //   controller: field1_planirovka,
+                    // ),
+                    // SizedBox(
+                    //   height: 20.h,
+                    // ),
+                    // InputListDesign(
+                    //   hintTextBack: 'Этаж',
+                    //   itemsFrom: list_field2_etazh,
+                    //   controller: field2_etazh,
+                    //   func: widget.returnText,
+                    // ),
+                    // SizedBox(
+                    //   height: 20.h,
+                    // ),
+                    // InputListDesign(
+                    //   hintTextBack: 'Угловая',
+                    //   itemsFrom: list_field3_uglovaya,
+                    //   controller: field3_uglovaya,
+                    //   func: widget.returnText,
+                    // ),
                     SizedBox(
                       height: 100.h,
                     ),

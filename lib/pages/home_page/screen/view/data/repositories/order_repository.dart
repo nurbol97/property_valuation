@@ -5,7 +5,8 @@ import 'package:http/http.dart' as http;
 
 class OrderRepository {
   Future<List<OrderModel>> fetchOrders() async {
-    String url = 'http://192.168.8.101/api/bids/';
+    print('Vyzvan');
+    String url = 'http://192.168.8.101:8000/api/bids/';
 
     try {
       dynamic response = await http.get(Uri.parse(url), headers: {
@@ -13,8 +14,8 @@ class OrderRepository {
         'Content-Type': 'application/json; charset=UTF-8',
         'Accept': 'application/json; charset=UTF-8',
       });
-      print(response.body);
-
+      print(" Responsex ${response.body}");
+      print(response);
       Map object = json.decode(response.body);
 
       return (object['Bids'] as List)
