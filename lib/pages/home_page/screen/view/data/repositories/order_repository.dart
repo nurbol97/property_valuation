@@ -17,10 +17,10 @@ class OrderRepository {
       print(" Responsex ${response.body}");
       print(response);
       Map object = json.decode(response.body);
-
-      return (object['Bids'] as List)
-          .map((i) => OrderModel.fromJson(i))
-          .toList();
+      return (object['Bids'] as List).map((i) {
+        print(i);
+        return OrderModel.fromMap(i);
+      }).toList();
       // List<OrderModel> orderData = [];
       // response.body.forEach((orderData) {
       //   orderData.add(new OrderModel(

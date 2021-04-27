@@ -2,12 +2,12 @@ import 'package:property_valuation/pages/home_page/screen/view/data/model/user.d
 
 class OrderModel {
   int id;
-  double housing_price;
+  int housing_price;
   int bid_number;
   DateTime bid_date;
   String housing_type;
   String housing_address;
-  double housing_area;
+  int housing_area;
   String bid_type;
   int userId;
 
@@ -22,17 +22,27 @@ class OrderModel {
       this.bid_type,
       this.userId});
 
-  factory OrderModel.fromJson(Map<String, dynamic> json) => OrderModel(
-        id: json["id"],
-        housing_price: json["housing_price"],
-        bid_number: json["bid_number"],
-        bid_date: DateTime.parse(json["bid_date"]),
-        housing_type: json["housing_type"],
-        housing_address: json["housing_address"],
-        housing_area: json["housing_area"],
-        bid_type: json["bid_type"],
-        userId: json["userId"],
-      );
+  static List<OrderModel> orderModelList(List objectList) {
+    List<OrderModel> orderModels = [];
+    for (var i in objectList) {
+      orderModels.add(OrderModel.fromMap(i));
+    }
+    return orderModels;
+  }
+
+  factory OrderModel.fromMap(Map object) {
+    return OrderModel(
+      id: object["id"],
+      housing_price: object["housing_price"],
+      bid_number: object["bid_number"],
+      bid_date: DateTime.parse(object["bid_date"]),
+      housing_type: object["housing_type"],
+      housing_address: object["housing_address"],
+      housing_area: object["housing_area"],
+      bid_type: object["bid_type"],
+      userId: object["userId"],
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         "id": id,

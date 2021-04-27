@@ -25,12 +25,10 @@ class HomePage extends StatelessWidget {
         'Content-Type': 'application/json; charset=UTF-8',
         'Accept': 'application/json; charset=UTF-8',
       });
-      print(" Responsex ${response.body}");
-      print(response);
-      Map object = json.decode(response.body);
-      return (object['Bids'] as List)
-          .map((i) => OrderModel.fromJson(i))
-          .toList();
+      List object = json.decode(response.body);
+      List<OrderModel> orderModelList =
+          OrderModel.orderModelList(object[0]['Bids']);
+      return orderModelList;
       // List<OrderModel> orderData = [];
       // response.body.forEach((orderData) {
       //   orderData.add(new OrderModel(
@@ -116,29 +114,46 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            FutureBuilder<List<OrderModel>>(
-              future: fetchOrders(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return ListView.builder(
-                    padding: EdgeInsets.zero,
-                    itemCount: snapshot.data.length,
-                    itemBuilder: (context, index) {
-                      return OrderFieldCard(snapshot.data[index]);
-                    },
-                  );
-                } else if (snapshot.hasError) {
-                  print(
-                    snapshot.error.toString(),
-                  );
-                  return Text(
-                    snapshot.error.toString(),
-                  );
-                }
-                return Center(
-                  child: CircularProgressIndicator(),
-                );
-              },
+            Expanded(
+              child: SizedBox(
+                width: 330.w,
+                child: FutureBuilder<List<OrderModel>>(
+                  future: fetchOrders(),
+                  builder: (context, snapshot) {
+                    ListView children;
+                    if (snapshot.hasData) {
+                      children = ListView.builder(
+                          padding: EdgeInsets.zero,
+                          itemCount: snapshot.data.length,
+                          itemBuilder: (context, index) {
+                            return OrderFieldCard(snapshot.data[index]);
+                          });
+                      return children;
+                      // return ListView.builder(
+                      //   padding: EdgeInsets.zero,
+                      //   itemCount: snapshot.data.length,
+                      //   itemBuilder: (context, index) {
+                      //     return OrderFieldCard(snapshot.data[index]);
+                      //   },
+                      // );
+                    } else if (snapshot.hasError) {
+                      children = ListView(children: [
+                        Text(
+                          snapshot.error.toString(),
+                        )
+                      ]);
+                      return children;
+                    } else {
+                      children = ListView(
+                        children: [
+                          CircularProgressIndicator(),
+                        ],
+                      );
+                      return Center(child: children);
+                    }
+                  },
+                ),
+              ),
             ),
             EntreBtnDesignBlue(
               text: "Начать осмотр",
