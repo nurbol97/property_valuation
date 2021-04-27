@@ -13,6 +13,7 @@ import 'package:property_valuation/pages/osmotr_page/view/osmotr_page7_dom.dart'
 import 'package:property_valuation/pages/osmotr_page/view/osmotr_page8_save_osmotr.dart';
 
 import 'package:property_valuation/pages/send_code_page/screen/view/send_code.dart';
+import 'package:property_valuation/pages/splash_page/splash_screen.dart';
 import 'package:property_valuation/pages/start_page/screen/view/startPoint.dart';
 import 'package:property_valuation/routes/app_routes.dart';
 
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       allowFontScaling: false,
       builder: () => MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: StartPoint(),
+        home: SplashScreen(),
         routes: {
           Routes.AUTH: (_) => StartPoint(),
           Routes.SCREEN_CODE: (_) => SendCodePage(),

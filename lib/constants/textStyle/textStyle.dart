@@ -131,6 +131,13 @@ class TextStyles {
       fontWeight: FontWeight.w700,
       color: ColorStyles.blue_color);
 
+  static const TextStyle blue_14_w500 = TextStyle(
+      fontFamily: 'UIDisplay',
+      fontStyle: FontStyle.normal,
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+      color: ColorStyles.blue_color);
+
   static const TextStyle orange_text16_w400 = TextStyle(
       fontFamily: 'UIDisplay',
       fontStyle: FontStyle.normal,

@@ -109,14 +109,14 @@ class OrderFieldCard extends StatelessWidget {
                   text: orders.housing_address.toString(),
                 ),
                 SizedBox(
-                  height: 23.h,
+                  height: 20.h,
                 ),
                 OrderField(
                   icon: Icon(PropertyValuationIcons.mappin),
                   text: orders.housing_area.toString(),
                 ),
                 SizedBox(
-                  height: 23.h,
+                  height: 20.h,
                 ),
                 OrderField(
                   icon: Icon(PropertyValuationIcons.chattext),
@@ -154,6 +154,13 @@ class OrderFieldCard extends StatelessWidget {
                 SizedBox(
                   height: 15.h,
                 ),
+                EntreBtnDesignBlue(
+                  text: "Начать осмотр",
+                  onSave: () {
+                    Navigator.pushNamed(context, Routes.OSMOTR1);
+                  },
+                  isActivated: true,
+                )
               ],
             ),
           ),

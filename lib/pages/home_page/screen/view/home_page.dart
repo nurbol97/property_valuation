@@ -137,31 +137,20 @@ class HomePage extends StatelessWidget {
                       //   },
                       // );
                     } else if (snapshot.hasError) {
-                      children = ListView(children: [
-                        Text(
+                      return Container(
+                        child: Text(
                           snapshot.error.toString(),
-                        )
-                      ]);
-                      return children;
-                    } else {
-                      children = ListView(
-                        children: [
-                          CircularProgressIndicator(),
-                        ],
+                        ),
                       );
-                      return Center(child: children);
+                    } else {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
                     }
                   },
                 ),
               ),
             ),
-            EntreBtnDesignBlue(
-              text: "Начать осмотр",
-              onSave: () {
-                Navigator.pushNamed(context, Routes.OSMOTR1);
-              },
-              isActivated: true,
-            )
           ],
         ),
       ),
