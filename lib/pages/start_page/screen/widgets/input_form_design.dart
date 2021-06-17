@@ -56,7 +56,7 @@ class _InputFormState extends State<InputForm> {
               text: 'Далее',
               isActivated: true,
               onSave: () {
-                Navigator.pushNamed(context, Routes.SCREEN_CODE);
+                Navigator.pushNamed(context, Routes.HOME);
                 if (_formKey.currentState.validate()) {
                   ScaffoldMessenger.of(context)
                       .showSnackBar(SnackBar(content: Text("Success")));

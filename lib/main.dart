@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
           Routes.OSMOTR8_SAVE_OSMOTR: (_) => OsmotrPage8SaveOsmotr(),
         },
         onUnknownRoute: (RouteSettings settings) {
-          return MaterialPageRoute(builder: (_) => SendCodePage());
+          return MaterialPageRoute(builder: (_) => HomePage());
         },
       ),
     );
